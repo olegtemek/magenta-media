@@ -17,6 +17,7 @@ class InstaController extends Controller
             'redirectUri' => env('REDIRECT_URI')
         ]);
 
+
         if (Insta::find(1)) {
             print_r('last update token = <strong>' . Insta::find(1)->day . '</strong><br>');
         }

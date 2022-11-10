@@ -44,11 +44,11 @@
           </div>
           <div class="col-sm-6">
             <div class="form-group">
-              <label>Адресс</label>
+              <label>Адрес</label>
               @error('address')
               <span class="error text-danger">{{ $message }}</span>
               @enderror
-              <input type="text" value="{{ $item->address }}" class="form-control" name="address" placeholder="Адресс">
+              <input type="text" value="{{ $item->address }}" class="form-control" name="address" placeholder="Адрес">
             </div>
           </div>
           <div class="col-sm-6">

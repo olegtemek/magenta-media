@@ -76,8 +76,8 @@ class SettingController extends Controller
      */
     public function update(SettingRequest $request, $id)
     {
-        Setting::find($id)->update($request->only('number', 'number_whatsapp', 'adderess', 'email', 'instagram'));
-        return redirect()->route('admin.setting.index')->with('message', 'Настройки успешно сохраненны');
+        Setting::find($id)->update($request->only('number', 'number_whatsapp', 'address', 'email', 'instagram'));
+        return redirect()->route('admin.setting.index')->with('message', 'Настройки успешно сохранены');
     }
 
     /**

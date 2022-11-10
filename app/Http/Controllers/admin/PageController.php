@@ -45,7 +45,7 @@ class PageController extends Controller
             'subtitle' => $request->subtitle,
             'image' => $request->image,
             'custom_title' => $request->custom_title,
-            'custom_description' => $request->ticustom_descriptiontle,
+            'custom_description' => $request->custom_description,
             'custom_image' => $request->custom_image,
             'seo_title' => $request->seo_title,
             'seo_description' => $request->seo_description,

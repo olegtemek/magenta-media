@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Setting extends Model
 {
     use HasFactory;
-    protected $fillable = ['number', 'number_whatsapp', 'adderess', 'email', 'instagram'];
+    protected $fillable = ['number', 'number_whatsapp', 'address', 'email', 'instagram'];
 }
