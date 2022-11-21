@@ -122,7 +122,7 @@
 
     <div class="row col-sm-12 mt-2">      
       <div class="col-sm-12">
-        <button class="btn btn-success" type="submit">Добавить страницу</button>
+        <button class="btn btn-success" type="submit">Сохранить страницу</button>
       </div>    
     </div>
   </form>

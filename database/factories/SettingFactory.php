@@ -17,7 +17,11 @@ class SettingFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'email' => 'info@name.kz',
+            'address' => 'г.Алматы, ул. Ади-шарипова, 92',
+            'number_whatsapp' => '+7 (771) 754 03 51',
+            'number' => '+7 (771) 754 03 51',
+            'instagram' => 'magentamedia.kz'
         ];
     }
 }

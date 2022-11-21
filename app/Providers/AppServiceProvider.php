@@ -8,7 +8,7 @@ use App\Models\Setting;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use EspressoDev\InstagramBasicDisplay\InstagramBasicDisplay;
-
+use Illuminate\Support\Facades\Vite;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -33,41 +33,41 @@ class AppServiceProvider extends ServiceProvider
             $global_data = [];
             $global_data['pages'] = Page::all();
 
-            if (Setting::all()->count() >= 0) {
-                $global_data['setting'] = Setting::find(1);
-            }
-            if (Insta::find(1)) {
-                $insta = Insta::find(1);
-                $instagram = new InstagramBasicDisplay([
-                    'appId' => env('APP_ID'),
-                    'appSecret' => env('APP_SECRET'),
-                    'redirectUri' => env('REDIRECT_URI')
-                ]);
+            // if (Insta::find(1)) {
+            //     $insta = Insta::find(1);
+            //     $instagram = new InstagramBasicDisplay([
+            //         'appId' => env('APP_ID'),
+            //         'appSecret' => env('APP_SECRET'),
+            //         'redirectUri' => env('REDIRECT_URI')
+            //     ]);
 
-                $instagram->setAccessToken($insta->token);
-                $media = $instagram->getUserMedia('me', 8);
-                $global_data['insta_image'] = [];
+            //     $instagram->setAccessToken($insta->token);
+            //     $media = $instagram->getUserMedia('me', 8);
+            //     $global_data['insta_image'] = [];
 
-                foreach ($media->data as $item) {
-                    if ($item->media_type == 'IMAGE') {
-                        array_push($global_data['insta_image'], ['image' => $item->media_url, 'image_url' => $item->permalink]);
-                    } elseif ($item->media_type == 'CAROUSEL_ALBUM') {
-                        foreach ($item->children->data as $itemChildren) {
-                            if ($itemChildren->media_type == 'IMAGE') {
-                                array_push($global_data['insta_image'], ['image' => $item->media_url, 'image_url' => $item->permalink]);
-                                break;
-                            }
-                        }
-                    }
-                }
+            //     foreach ($media->data as $item) {
+            //         if ($item->media_type == 'IMAGE') {
+            //             array_push($global_data['insta_image'], ['image' => $item->media_url, 'image_url' => $item->permalink]);
+            //         } elseif ($item->media_type == 'CAROUSEL_ALBUM') {
+            //             foreach ($item->children->data as $itemChildren) {
+            //                 if ($itemChildren->media_type == 'IMAGE') {
+            //                     array_push($global_data['insta_image'], ['image' => $item->media_url, 'image_url' => $item->permalink]);
+            //                     break;
+            //                 }
+            //             }
+            //         }
+            //     }
 
-                //if u want to show in the view
-                // @foreach ($global_data['insta_image'] as $item)
-                //     <a href="{{$item['image_url']}}" target="_blank"><img src="{{$item['image']}}" alt="" style="max-width:150px"></a>
-                //     <br>
-                // @endforeach
-            }
+            //     //if u want to show in the view
+            //     // @foreach ($global_data['insta_image'] as $item)
+            //     //     <a href="{{$item['image_url']}}" target="_blank"><img src="{{$item['image']}}" alt="" style="max-width:150px"></a>
+            //     //     <br>
+            //     // @endforeach
+            // }
+
+            $global_data['settings'] = Setting::find(1);
             View::share('global_data', $global_data);
         });
+        Vite::macro('assets', fn ($asset) => $this->asset("resources/assets/{$asset}"));
     }
 }

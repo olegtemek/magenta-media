@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('page_id')->references('id')->on('pages')->onDelete('cascade');
+            $table->longText('description');
             $table->string('title');
             $table->string('image');
             $table->string('price')->nullable();

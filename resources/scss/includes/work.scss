@@ -1,0 +1,170 @@
+.work {
+  margin-top: 86px;
+  padding-top: 120px;
+  padding-bottom: 40px;
+  background-color: $black-dark;
+
+  @media (max-width:630px) {
+    padding-top: 40px;
+  }
+
+  h2 {
+    color: $white;
+  }
+
+  &__slider {
+    height: 420px;
+    position: relative;
+    width: 100%;
+
+    @media (max-width:1366px) {
+      height: 340px;
+    }
+
+    @media (max-width:630px) {
+      height: 290px;
+    }
+
+    .work-pagination {
+      .swiper-pagination-bullet {
+        background: gray !important;
+        opacity: 1;
+
+        &-active {
+          background: $purple !important;
+
+          &-prev-prev {
+            opacity: 0;
+          }
+
+          &-next-next {
+            opacity: 0;
+          }
+        }
+
+
+      }
+
+    }
+
+    &-button {
+
+      &-next {
+        right: 0;
+      }
+
+      &-next,
+      &-prev {
+        background-color: $purple;
+        font-size: 0;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        position: absolute;
+        top: 24%;
+
+        @media (max-width:1366px) {
+          top: 30%;
+        }
+
+        @media (max-width:740px) {
+          width: 60px;
+          height: 60px;
+          top: 80%;
+        }
+
+        @media (max-width:630px) {
+          display: none;
+        }
+
+        &::after {
+          content: '→';
+          font-size: 26px;
+          color: $white;
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+
+      &-prev {
+        left: 0%;
+
+        &::after {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+
+
+    .swiper-slide {
+      transition: $tr;
+      width: 380px;
+      height: 260px;
+      cursor: pointer;
+
+      @media (max-width:1366px) {
+        height: 240px;
+      }
+
+      @media (max-width:1024px) {
+        width: 280px;
+        height: 220px;
+      }
+
+      @media (max-width:414px) {
+        height: 80%;
+        width: 90%;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: $tr;
+      }
+
+      &.swiper-slide-next {
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: $black;
+          opacity: 0.8;
+          z-index: 2;
+        }
+      }
+
+      &.swiper-slide-active {
+        img {
+          height: 320px;
+          width: 100%;
+
+          @media (max-width:1366px) {
+            height: 280px;
+          }
+
+          @media (max-width:1024px) {
+            height: 260px;
+          }
+
+          @media (max-width:630px) {
+            height: 110%;
+          }
+
+          @media (max-width:414px) {
+            height: 100%;
+          }
+
+        }
+      }
+    }
+  }
+}

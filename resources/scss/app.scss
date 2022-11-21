@@ -1,0 +1,64 @@
+@import 'swiper/css/bundle';
+@import "@fancyapps/ui/dist/fancybox.css";
+@import '@styles/_normalize.scss';
+@import '@styles/_variables.scss';
+@import '@styles/_fonts.scss';
+@import '@styles/includes/_includes.scss';
+
+
+button {
+  color: inherit;
+}
+
+
+body {
+  font-family: 'Roboto';
+  font-weight: $fw-regular;
+  color: $black;
+  overflow-x: hidden;
+}
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: $fw-bold;
+  padding-bottom: 80px;
+
+  @media (max-width:740px) {
+    font-size: 30px;
+    padding-bottom: 40px;
+  }
+
+  @media (max-width:375px) {
+    font-size: 24px;
+  }
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+
+  @media (max-width:1366px) {
+    max-width: 960px;
+  }
+
+  @media (max-width:1024px) {
+    max-width: 700px;
+  }
+
+  @media (max-width:740px) {
+    max-width: 600px;
+  }
+
+  @media (max-width:660px) {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+}
+
+.btn {
+  font-weight: $fw-medium;
+  border: 1px solid $purple;
+  border-radius: $br;
+}

@@ -17,7 +17,8 @@ class GalleryFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'page_id' => fake()->numberBetween(1, 5),
+            'image' => 'images/Screenshot 2022-11-09 at 11.15.05 AM.png'
         ];
     }
 }

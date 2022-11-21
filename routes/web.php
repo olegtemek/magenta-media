@@ -41,13 +41,16 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
         Route::put('/gallery/{id}/update', 'update')->name('gallery.update');
         Route::delete('/gallery/{id}', 'destroy')->name('gallery.destroy');
     });
-    Route::get('/insta', [adminInstaConroller::class, 'index'])->name('insta.index');
+    Route::get('/insta', [adminInstaController::class, 'index'])->name('insta.index');
     Route::resource('/setting', adminSettingController::class)->only(['index', 'update']);
 });
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'request'])->name('login.post');
 
-Route::get('/', [IndexController::class, 'index']);
+
+Route::group(['as' => 'front.'], function () {
+    Route::get('/', [IndexController::class, 'index'])->name('home.index');
+});
 
 
 
