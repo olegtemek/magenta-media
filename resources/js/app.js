@@ -106,3 +106,17 @@ if (document.querySelectorAll('.services__item')) {
   }
 
 }
+
+
+if (document.getElementById('map')) {
+  DG.then(function () {
+    var map;
+
+    map = DG.map('map', {
+      center: [54.98, 82.89],
+      zoom: 10,
+      skin: 'dark',
+    });
+
+  });
+}

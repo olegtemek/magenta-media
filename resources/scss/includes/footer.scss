@@ -1,0 +1,196 @@
+.footer {
+  background-color: $black-dark;
+  color: $white;
+  padding-top: 28px;
+  margin-top: 120px;
+
+  .nasa {
+    display: inline-block;
+    padding: 10px 0;
+    color: $white;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 28px;
+
+    &-links {
+      display: flex;
+      align-items: center;
+
+      ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+
+        @media (max-width:660px) {
+          flex-wrap: wrap;
+          gap: 20px;
+
+          >li {
+            margin: 0 !important;
+          }
+        }
+
+        li {
+          margin-right: 90px;
+
+          @media (max-width:1366px) {
+            margin-right: 40px;
+          }
+
+          @media (max-width:1024px) {
+            margin-right: 20px;
+          }
+
+          &:first-child {
+            img {
+              margin-right: 10px;
+
+              @media (max-width:1024px) {
+                margin-right: 0;
+              }
+            }
+
+            font-size: 18px;
+
+            @media (max-width:1024px) {
+              font-size: 0;
+            }
+
+            @media (max-width:740px) {
+              display: none;
+            }
+          }
+
+          &:nth-child(2) {
+            text-decoration: underline;
+
+            @media (max-width:660px) {
+              order: 2;
+            }
+          }
+
+          &:nth-child(3) {
+            @media (max-width:660px) {
+              order: 1;
+            }
+          }
+
+
+          &:nth-child(4) {
+            margin-right: 48px;
+
+
+            @media (max-width:1366px) {
+              margin-right: 20px;
+            }
+
+            @media (max-width:740px) {
+              margin-right: 10px;
+            }
+
+            @media (max-width:660px) {
+              order: 4;
+            }
+
+            a {
+              font-weight: $fw-medium;
+              font-size: 18px;
+
+              @media (max-width:1024px) {
+                font-size: 16px;
+                font-weight: $fw-regular;
+              }
+            }
+          }
+
+          &:last-child {
+            @media (max-width:740px) {
+              display: none;
+            }
+          }
+
+
+
+          a {
+            display: flex;
+            align-items: center;
+
+            >svg {
+              &.whatsapp {
+                fill: $white;
+                width: 18px;
+                height: 18px;
+                margin-right: 10px;
+
+                @media (max-width:1366px) {
+                  margin-right: 4px;
+                }
+              }
+
+              &.insta {
+                height: 32px;
+                width: 32px;
+                object-fit: cover;
+                fill: $purple;
+                transition: $tr;
+              }
+            }
+
+            &:hover {
+              svg {
+                &.insta {
+                  fill: darken($purple, 10);
+                }
+              }
+            }
+
+            span {
+              width: 8px;
+              height: 8px;
+              background-color: $purple;
+              position: relative;
+              margin-right: 10px;
+
+              @media (max-width:1366px) {
+                margin-right: 4px;
+              }
+
+              &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 4px;
+                height: 4px;
+                transform: translate(-50%, -50%);
+                background-color: $black-dark;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__map {
+    height: 400px;
+    width: 100%;
+
+    @media (max-width:1366px) {
+      height: 320px;
+    }
+
+    @media (max-width:1024px) {
+      height: 280px;
+    }
+  }
+}

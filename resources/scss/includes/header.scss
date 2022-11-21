@@ -33,6 +33,10 @@
           }
 
           a {
+
+            display: flex;
+            align-items: center;
+
             span {
               width: 8px;
               height: 8px;
@@ -66,9 +70,6 @@
                 margin-right: 4px;
               }
             }
-
-            display: flex;
-            align-items: center;
           }
 
           &:first-child {
@@ -154,7 +155,7 @@
       >a {
         position: fixed;
         right: 20px;
-        top: 58.5%;
+        bottom: 60px;
       }
 
       ul {

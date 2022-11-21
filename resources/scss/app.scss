@@ -11,11 +11,12 @@ button {
 }
 
 
+
+
 body {
   font-family: 'Roboto';
   font-weight: $fw-regular;
   color: $black;
-  overflow-x: hidden;
 }
 
 .title {
@@ -25,13 +26,17 @@ body {
   font-weight: $fw-bold;
   padding-bottom: 80px;
 
-  @media (max-width:740px) {
+  @media (max-width:1024px) {
     font-size: 30px;
+  }
+
+  @media (max-width:740px) {
+    font-size: 26px;
     padding-bottom: 40px;
   }
 
   @media (max-width:375px) {
-    font-size: 24px;
+    font-size: 22px;
   }
 }
 

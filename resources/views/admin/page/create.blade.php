@@ -27,7 +27,7 @@
     
           <div class="col-sm-4">
             <div class="form-group">
-              <label>Подзаголовок (необязательное поле)</label>
+              <label>Подзаголовок</label>
               @error('subtitle')
               <span class="error text-danger">{{ $message }}</span>
               @enderror

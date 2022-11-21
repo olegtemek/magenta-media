@@ -96,5 +96,19 @@
 <script src="/dist/js/pages/dashboard2.js"></script>
 
 @yield('js')
+
+<script>
+  if($('.btn-danger')){
+    $('.btn-danger').click(function(){
+      let res = confirm('Вы подтверждаете свои действия?')
+        if(!res){
+          return false
+        }
+    })
+
+
+
+  }
+</script>
 </body>
 </html>

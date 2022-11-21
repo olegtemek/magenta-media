@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->longText('subtitle')->nullable();
-            $table->longText('subtitle_bold')->nullable();
             $table->string('image');
             $table->string('custom_title');
             $table->string('custom_description');

@@ -13,7 +13,6 @@ export default defineConfig({
             '@assets': '/resources/assets/',
             '@styles': '/resources/scss/',
             '@fonts': '/resources/fonts/',
-            '@assets': '/resources/assets/',
             '@includes': '/resources/scss/includes/',
         },
     },

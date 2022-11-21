@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{env('APP_NAME')}} || @yield('seo_title')</title>
   <meta name="description" content="@yield('seo_description')">
+  <script src="http://maps.api.2gis.ru/2.0/loader.js?pkg=full&skin=dark"></script>
   @vite(['resources/js/app.js', 'resources/scss/app.scss'])
 </head>
 <body>
@@ -15,7 +16,10 @@
 
   @yield('content')
 
+  @include('front.components.about')
   @include('front.components.select', ['pages'=>$global_data['pages']])
+  
+  @include('front.components.footer', ['pages'=>$global_data['pages']])
 
   @yield('js')
 
