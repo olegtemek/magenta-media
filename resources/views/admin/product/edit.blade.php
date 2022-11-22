@@ -34,6 +34,15 @@
               <input type="text" value="{{ $item->price }}" class="form-control" name="price" placeholder="Цена">
             </div>
           </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label>Материал(необязательно)</label>
+              @error('material')
+              <span class="error text-danger">{{ $message }}</span>
+              @enderror
+              <input type="text" value="{{ $item->material }}" class="form-control" name="material" placeholder="Материал(необязательно)">
+            </div>
+          </div>
 
           <div class="col-sm-6">
             <div class="form-group">
@@ -57,7 +66,7 @@
 
     <div class="row col-sm-12 mt-2">      
       <div class="col-sm-12">
-        <button class="btn btn-success" type="submit">Добавить товар</button>
+        <button class="btn btn-success" type="submit">Сохранить товар</button>
       </div>    
     </div>
   </form>

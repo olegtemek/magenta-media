@@ -2,6 +2,7 @@ import './bootstrap';
 
 import { Swiper, Navigation, Pagination, Autoplay } from 'swiper';
 import { Fancybox } from "@fancyapps/ui";
+import axios from 'axios';
 
 if (document.querySelector('.work__slider')) {
 
@@ -156,39 +157,60 @@ if (document.querySelectorAll('.intro__home-items-inner')) {
 
 if (document.getElementById('products_more')) {
 
-  let products = document.querySelectorAll('.services__item')
+  let btn_more = document.getElementById('products_more')
+  let token = document.querySelector('meta[name="csrf-token"]')['content'];
+  let page_id = document.getElementById('page_id').value;
 
-  let more_product_btn = document.getElementById('products_more')
-  more_product_btn.addEventListener('click', () => {
-    productToggle(true)
+  btn_more.addEventListener('click', () => {
+    let products_count = btn_more.parentNode.querySelectorAll('.services__wrapper > .services__item').length
+
+    if (products_count > 4) {
+      console.log('error');
+    } else {
+      getAllProducts();
+    }
   })
 
+  async function getAllProducts() {
+    let res = await axios.post('/get-products', { id: page_id })
+    if (res.status == 200) {
+      document.getElementById('services').innerHTML = res.data
 
-  function productToggle(type = false) {
 
-    let page_id = document.getElementById('page_id').value;
-    let token = document.querySelector('meta[name="csrf-token"]')['content']
 
-    $.ajax({
-      url: '/get-products',
-      type: "POST",
-      headers: {
-        "X-CSRF-TOKEN": token
-      },
-      dataType: "html",
-      data: {
-        id: page_id,
-        type: type
-      },
-      success: function (response) {
-        console.log(response);
-        $('#services').html(response)
-
-        $('#products_more').click(() => {
-          productToggle() // доделать
-        })
-      },
-    });
+      document.getElementById('products_more').addEventListener('click', () => {
+        let products = document.getElementById('products_more').parentNode.querySelectorAll('.services__wrapper > .services__item')
+        if (products.length > 4) {
+          products.forEach((product, index) => {
+            product.classList.toggle('hidden')
+          });
+        }
+        products[0].classList[1] == 'hidden' ? document.getElementById('products_more').innerText = 'Смотреть еще' : document.getElementById('products_more').innerText = 'Скрыть'
+      })
+    }
   }
 }
+
+
+
+// $.ajax({
+//   url: '/get-products',
+//   type: "POST",
+//   headers: {
+//     "X-CSRF-TOKEN": token
+//   },
+//   dataType: "html",
+//   data: {
+//     id: page_id,
+//     type: type
+//   },
+//   success: function (response) {
+//     console.log(response);
+//     $('#services').html(response)
+
+//     $('#products_more').click(() => {
+//       productToggle() // доделать
+//     })
+//   },
+// });
 

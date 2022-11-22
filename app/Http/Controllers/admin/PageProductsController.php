@@ -18,7 +18,8 @@ class PageProductsController extends Controller
     public function index($id)
     {
         $page = Page::find($id);
-        $products = Product::all();
+        $products = Product::orderBy('id', 'asc')->where('page_id', $id)->get();
+
         return view('admin.product.index', compact('page', 'products'));
     }
 
@@ -46,7 +47,8 @@ class PageProductsController extends Controller
             'title' => $request->title,
             'image' => $request->image,
             'page_id' => $id,
-            'price' => $request->price
+            'price' => $request->price,
+            'material' => $request->material,
         ]);
 
         return redirect()->route('admin.product.index', $id)->with('message', 'Товар успешно был добавлен');
@@ -92,7 +94,8 @@ class PageProductsController extends Controller
             'title' => $request->title,
             'image' => $request->image,
             'page_id' => $page_id,
-            'price' => $request->price
+            'price' => $request->price,
+            'material' => $request->material,
         ]);
 
         return redirect()->route('admin.product.index', $page_id)->with('message', 'Товар успешно был изменен');

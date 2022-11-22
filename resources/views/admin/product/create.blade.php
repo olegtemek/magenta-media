@@ -34,6 +34,16 @@
             </div>
           </div>
 
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label>Материал(необязательно)</label>
+              @error('material')
+              <span class="error text-danger">{{ $message }}</span>
+              @enderror
+              <input type="text" value="{{ old('material') }}" class="form-control" name="material" placeholder="Материал(необязательно)">
+            </div>
+          </div>
+
           <div class="col-sm-6">
             <div class="form-group">
               @error('image')
