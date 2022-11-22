@@ -22,6 +22,7 @@
             <thead>
               <tr>
                 <th>Фотография</th>
+                <th>Заголовок</th>
                 <th>Удалить/Изменить</th>
               </tr>
             </thead>
@@ -29,6 +30,7 @@
             @foreach ($gallery as $photo)
             <tr>
               <td><img src="/{{$photo->image}}" style="max-width:200px" alt=""></td>
+              <td>{{$photo->title}}</td>
               <td>
                 <a href="{{route('admin.gallery.edit', $photo->id)}}" class="btn btn-primary">Изменить</a>
                 <form style="display:inline" action="{{route('admin.gallery.destroy', $photo->id)}}" method="post">

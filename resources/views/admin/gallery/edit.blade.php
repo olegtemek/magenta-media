@@ -15,6 +15,15 @@
     <div class="cart-body">
       <div class="row">
         <div class="col-sm-12 row mb-4">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label>Заголовок</label>
+              @error('title')
+              <span class="error text-danger">{{ $message }}</span>
+              @enderror
+              <input type="text" value="{{ $item->title }}" class="form-control" name="title" placeholder="Заголовок">
+            </div>
+          </div>
           <div class="col-sm-6">
             <div class="form-group">
               @error('image')

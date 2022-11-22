@@ -24,6 +24,11 @@
     height: 60px;
     max-width: 216px;
 
+    @media (max-width:1366px) {
+      padding: 10px 10px;
+      font-size: 14px;
+    }
+
     &:hover {
       background-color: $purple;
     }

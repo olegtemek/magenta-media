@@ -50,6 +50,7 @@ Route::post('/login', [AuthController::class, 'request'])->name('login.post');
 
 Route::group(['as' => 'front.'], function () {
     Route::get('/', [IndexController::class, 'index'])->name('home.index');
+    Route::post('/get-products', [IndexController::class, 'getProducts'])->name('home.getProducts');
 });
 
 

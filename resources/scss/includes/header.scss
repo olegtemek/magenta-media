@@ -1,6 +1,10 @@
 .header {
   padding: 26px 0;
 
+  @media (max-width:1024px) {
+    background-color: $black-dark;
+  }
+
   &__wrapper {
     display: flex;
     align-items: center;
@@ -128,6 +132,7 @@
       padding: 20px;
       height: 100%;
       display: flex;
+      z-index: 2;
       align-items: flex-start;
       border-left: 1px solid $purple;
       background-color: $white;
@@ -202,6 +207,8 @@
         border-radius: $br;
         border: 1px solid $purple;
         padding: 10px 6px;
+        fill: $white;
+        filter: grayscale(100%) invert(100%);
       }
     }
 
@@ -211,6 +218,10 @@
       justify-content: flex-start;
       color: $gray;
       font-size: 22px;
+
+      @media (max-width:1024px) {
+        color: $white;
+      }
 
       img {
         margin-top: -10px;

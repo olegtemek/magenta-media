@@ -18,7 +18,8 @@ class GalleryFactory extends Factory
     {
         return [
             'page_id' => fake()->numberBetween(1, 5),
-            'image' => 'images/Screenshot 2022-11-09 at 11.15.05 AM.png'
+            'image' => 'images/Screenshot 2022-11-09 at 11.15.05 AM.png',
+            'title' => fake()->text(20),
         ];
     }
 }

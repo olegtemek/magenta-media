@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('page_id')->references('id')->on('pages')->onDelete('cascade');
             $table->string('image');
+            $table->string('title');
             $table->timestamps();
         });
     }

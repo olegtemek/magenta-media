@@ -6,8 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{env('APP_NAME')}} || @yield('seo_title')</title>
   <meta name="description" content="@yield('seo_description')">
-  <script src="http://maps.api.2gis.ru/2.0/loader.js?pkg=full&skin=dark"></script>
+
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <script src="https://mapgl.2gis.com/api/js/v1"></script>
   @vite(['resources/js/app.js', 'resources/scss/app.scss'])
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </head>
 <body>
   
@@ -17,14 +20,13 @@
   @yield('content')
 
   @include('front.components.about')
+  @include('front.components.insta')
   @include('front.components.select', ['pages'=>$global_data['pages']])
-  
   @include('front.components.footer', ['pages'=>$global_data['pages']])
 
   @yield('js')
 
   @include('front.components.svg')
-
 
 </body>
 </html>

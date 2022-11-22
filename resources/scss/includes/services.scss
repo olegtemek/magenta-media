@@ -1,6 +1,10 @@
 .services {
   padding-top: 130px;
 
+  @media (max-width:1024px) {
+    padding-top: 40px;
+  }
+
 
   &__wrapper {
     display: flex;
@@ -63,12 +67,11 @@
     h3 {
       padding: 20px 0;
       font-weight: $fw-medium;
-      font-size: 20px;
+      font-size: 18px;
       text-transform: uppercase;
       line-height: 25px;
 
       @media (max-width:1366px) {
-        font-size: 18px;
         line-height: 20px;
       }
 

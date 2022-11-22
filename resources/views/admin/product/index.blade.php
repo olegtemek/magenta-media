@@ -22,6 +22,7 @@
             <thead>
               <tr>
                 <th>Название товара</th>
+                <th>Фотография</th>
                 <th>Цена</th>
                 <th>Удалить/Изменить</th>
               </tr>
@@ -30,6 +31,7 @@
             @foreach ($products as $product)
             <tr>
               <td>{{$product->title}}</td>
+              <td><img src="/{{$product->image}}" style="max-width:150px" alt=""></td>
               <td>{{number_format($product->price, 0, '.', ' ')}}</td>
               <td>
                 <a href="{{route('admin.product.edit', $product->id)}}" class="btn btn-primary">Изменить</a>

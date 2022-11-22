@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
         $pages = [
             [
                 'title' => 'Наружная реклама',
-                'subtitle' => 'text intro',
+                'subtitle' => 'Изготовление <strong>наружной рекламы</strong>',
                 'custom_title' => 'Индивидуальный проект',
                 'image' => 'pages/narug.png',
                 'custom_description' => 'Каждый проект изготавливается изходя  из пожеланий клиента',
@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'title' => 'Типография',
-                'subtitle' => 'text intro',
+                'subtitle' => 'Изготовление <strong>наружной рекламы</strong>',
                 'custom_title' => 'Индивидуальный проект',
                 'image' => 'pages/tipogr.png',
                 'custom_description' => 'Каждый проект изготавливается изходя  из пожеланий клиента',
@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'title' => 'Сувенирная продукция',
-                'subtitle' => 'text intro',
+                'subtitle' => 'Изготовление <strong>наружной рекламы</strong>',
                 'custom_title' => 'Индивидуальный проект',
                 'image' => 'pages/zont.png',
                 'custom_description' => 'Каждый проект изготавливается изходя  из пожеланий клиента',
@@ -55,7 +55,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'title' => 'Пошив и брендирование униформы',
-                'subtitle' => 'text intro',
+                'subtitle' => 'Изготовление <strong>наружной рекламы</strong>',
                 'custom_title' => 'Индивидуальный проект',
                 'image' => 'pages/poshiv.png',
                 'custom_description' => 'Каждый проект изготавливается изходя  из пожеланий клиента',
@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'title' => 'Производство одноразовых стаканов',
-                'subtitle' => 'text intro',
+                'subtitle' => 'Изготовление <strong>наружной рекламы</strong>',
                 'custom_title' => 'Индивидуальный проект',
                 'image' => 'pages/stak.png',
                 'custom_description' => 'Каждый проект изготавливается изходя  из пожеланий клиента',

@@ -22,7 +22,7 @@
           </li>
           <li>
             <a href="https://www.instagram.com/{{$global_data['settings']->instagram}}" target="_blank">
-              <svg class="icon insta">
+              <svg class="icon insta_icon">
                 <use xlink:href="#instagram"></use>
               </svg>
             </a>
@@ -32,7 +32,7 @@
     </div>
   </div>
   <div class="footer__map" id="map">
-      
+    <img src="{{Vite::assets('map.png')}}" alt="Map">
   </div>
   <div class="container">
     <span class="nasa">Разработано <a href="https://nasa.kz/" target="_blank">nasa.kz</a></span>

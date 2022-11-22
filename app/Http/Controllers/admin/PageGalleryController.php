@@ -44,6 +44,7 @@ class PageGalleryController extends Controller
         Gallery::create([
             'image' => $request->image,
             'page_id' => $id,
+            'title' => $request->title
         ]);
 
         return redirect()->route('admin.gallery.index', $id)->with('message', 'Изображение успешно был добавлено');
@@ -80,13 +81,14 @@ class PageGalleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(GalleryRequest $request, $id)
     {
         $page_id = Gallery::find($id)->page_id;
 
         Gallery::find($id)->update([
             'image' => $request->image,
             'page_id' => $page_id,
+            'title' => $request->title
         ]);
 
         return redirect()->route('admin.gallery.index', $page_id)->with('message', 'Изображение успешно было изменено');
@@ -100,6 +102,8 @@ class PageGalleryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $page_id = Gallery::find($id)->page_id;
+        $gallery = Gallery::destroy($id);
+        return redirect()->route('admin.gallery.index', $page_id)->with('message', 'Изображение было успешно удалено');
     }
 }

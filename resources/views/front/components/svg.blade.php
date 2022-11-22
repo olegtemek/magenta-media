@@ -12,7 +12,7 @@
     </g>
     <defs>
       <clipPath id="clip0_17_4">
-        <rect width="28" height="14" fill="white"></rect>
+        <rect width="28" height="14"></rect>
       </clipPath>
     </defs>
   </symbol>
