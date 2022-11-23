@@ -286,7 +286,7 @@ if (document.querySelectorAll('.open-simple').length >= 1) {
 }
 
 function productModal() {
-  if (document.querySelectorAll('open-product').length >= 1) {
+  if (document.querySelectorAll('.open-product').length >= 1) {
     document.querySelectorAll('.open-product').forEach(button => {
       button.addEventListener('click', () => {
         let modal = document.querySelector('.modal-product')
@@ -364,6 +364,7 @@ productModal()
 
 if (document.querySelector('.send-simple-form')) {
   document.querySelector('.send-simple-form').addEventListener('click', async () => {
+    console.log('test');
     let parent = document.querySelector('.send-simple-form').parentNode.parentNode;
     let name = parent.querySelector('input[name="name"]')
     let number = parent.querySelector('input[name="number"')
