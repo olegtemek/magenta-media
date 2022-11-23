@@ -15,7 +15,7 @@
               <a href="mailto:{{$global_data['settings']->email}}" target="_blank"> <span></span> {{$global_data['settings']->email}}</a>
             </li>
             <li>
-              <a href="#" target="_blank"> <span></span> {{$global_data['settings']->address}}</a>
+              <a href="https://go.2gis.com/if77e" target="_blank"> <span></span> {{$global_data['settings']->address}}</a>
             </li>
             <li>
               <a href="tel:{{$global_data['settings']->number}}" target="_blank"> 
@@ -28,7 +28,7 @@
 
             @foreach ($global_data['pages']->reverse() as $page)
               <li class="link_menu">
-                <a href="#">{{$page->title}}</a>
+                <a href="{{route('front.other.index', $page->slug)}}">{{$page->title}}</a>
               </li>
             @endforeach
           </ul>

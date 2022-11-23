@@ -121,10 +121,8 @@ if (document.querySelector('.input_number')) {
 
 
 
-
-
-if (document.querySelectorAll('.intro__home-items-inner')) {
-  const parallaxBlock = document.querySelectorAll('.intro__home-items-inner');
+if (document.querySelectorAll('.parallax')) {
+  const parallaxBlocks = document.querySelectorAll('.parallax-item');
 
   const mediaQuery = window.matchMedia('(max-width: 1360px)')
   const mediaQueryMobile = window.matchMedia('(max-width: 414px)')
@@ -146,71 +144,114 @@ if (document.querySelectorAll('.intro__home-items-inner')) {
     }
   }
 
-  parallaxScroll(parallaxBlock[0]);
+  parallaxScroll(parallaxBlocks[0]);
 
-  parallaxBlock.forEach(item => {
+  parallaxBlocks.forEach(item => {
     document.addEventListener('scroll', () => {
       parallaxScroll(item);
     });
   });
 }
 
+
+
+
+
 if (document.getElementById('products_more')) {
 
   let btn_more = document.getElementById('products_more')
-  let token = document.querySelector('meta[name="csrf-token"]')['content'];
   let page_id = document.getElementById('page_id').value;
 
-  btn_more.addEventListener('click', () => {
-    let products_count = btn_more.parentNode.querySelectorAll('.services__wrapper > .services__item').length
 
-    if (products_count > 4) {
-      console.log('error');
-    } else {
-      getAllProducts();
+
+
+  //        ? document.getElementById('products_more').innerText = 'Смотреть еще' : document.getElementById('products_more').innerText = 'Скрыть'
+
+  btn_more.addEventListener('click', () => {
+    let wrapper_products = document.getElementById('products')
+    if (btn_more.innerText == 'Скрыть') {
+      wrapper_products.querySelectorAll('.services__item').forEach((product, index) => {
+        if (index >= 4) {
+          product.classList.remove('show')
+          btn_more.innerText = 'Смотреть еще'
+        }
+      });
+      return;
     }
+
+    if (wrapper_products.querySelectorAll('.services__item').length > 4) {
+      wrapper_products.querySelectorAll('.services__item').forEach((product, index) => {
+        if (index >= 4) {
+          product.classList.add('show')
+          btn_more.innerText = 'Скрыть'
+        }
+      });
+      return;
+    }
+    getAllProducts()
   })
 
   async function getAllProducts() {
     let res = await axios.post('/get-products', { id: page_id })
+    let wrapper_products = document.getElementById('products')
     if (res.status == 200) {
-      document.getElementById('services').innerHTML = res.data
-
-
-
-      document.getElementById('products_more').addEventListener('click', () => {
-        let products = document.getElementById('products_more').parentNode.querySelectorAll('.services__wrapper > .services__item')
-        if (products.length > 4) {
-          products.forEach((product, index) => {
-            product.classList.toggle('hidden')
-          });
-        }
-        products[0].classList[1] == 'hidden' ? document.getElementById('products_more').innerText = 'Смотреть еще' : document.getElementById('products_more').innerText = 'Скрыть'
-      })
+      wrapper_products.innerHTML = res.data
+      btn_more.innerText = 'Скрыть'
     }
   }
 }
 
 
 
-// $.ajax({
-//   url: '/get-products',
-//   type: "POST",
-//   headers: {
-//     "X-CSRF-TOKEN": token
-//   },
-//   dataType: "html",
-//   data: {
-//     id: page_id,
-//     type: type
-//   },
-//   success: function (response) {
-//     console.log(response);
-//     $('#services').html(response)
+if (document.querySelectorAll('.send-simple')) {
+  let buttons = document.querySelectorAll('.send-simple');
+  buttons.forEach(button => {
+    button.addEventListener('click', async () => {
+      let parent = button.parentNode.parentNode;
+      let name = parent.querySelector('input[name="name"]')
+      let number = parent.querySelector('input[name="number"')
+      if (parent.querySelector('input[type="checkbox"]')) {
+        let check = parent.querySelector('input[type="checkbox"]')
+        !check.checked ? check.parentNode.classList.add('error') : check.parentNode.classList.remove('error')
+      }
+      name.value.trim().length <= 0 ? name.parentNode.classList.add('error') : name.parentNode.classList.remove('error')
+      number.value.trim().length <= 0 ? number.parentNode.classList.add('error') : number.parentNode.classList.remove('error')
 
-//     $('#products_more').click(() => {
-//       productToggle() // доделать
-//     })
-//   },
-// });
 
+      if (parent.querySelector('.error')) {
+        return;
+      } else {
+        let res = await axios.post('send-mail', { name: name.value.trim(), number: number.value.trim() })
+        console.log(res);
+      }
+    })
+  });
+}
+
+if (document.querySelectorAll('.open-simple')) {
+  document.querySelectorAll('.open-simple').forEach(button => {
+    button.addEventListener('click', () => {
+      document.querySelector('.modal').classList.add('active')
+
+      document.querySelector('.modal').addEventListener('click', (e) => {
+        if (e.target.classList[0] == 'modal' || e.target.classList[0] == 'close') {
+          document.querySelector('.modal').classList.remove('active')
+        }
+      })
+    })
+  });
+}
+
+if (document.querySelectorAll('open-product')) {
+  document.querySelectorAll('.open-product').forEach(button => {
+    button.addEventListener('click', () => {
+      document.querySelector('.modal-product').classList.add('active')
+      document.querySelector('.modal-product').addEventListener('click', (e) => {
+
+        if (e.target.classList[1] == 'modal-product' || e.target.classList[1] == 'close-product') {
+          document.querySelector('.modal-product').classList.remove('active')
+        }
+      })
+    })
+  });
+}

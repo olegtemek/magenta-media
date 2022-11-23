@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('custom_image');
             $table->string('seo_title')->nullable();
             $table->string('seo_description')->nullable();
+            $table->longText('seo_text')->nullable();
             $table->string('slug');
             $table->timestamps();
         });

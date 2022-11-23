@@ -44,6 +44,16 @@
             </div>
           </div>
 
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label>Описание(кратко)</label>
+              @error('description')
+              <span class="error text-danger">{{ $message }}</span>
+              @enderror
+              <input type="text" value="{{ old('description') }}" class="form-control" name="description" placeholder="Описание(кратко)">
+            </div>
+          </div>
+
           <div class="col-sm-6">
             <div class="form-group">
               @error('image')

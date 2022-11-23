@@ -1,9 +1,7 @@
 
-<div class="container">
-  <h2 class="title">Наши услуги</h2>
-  <div class="services__wrapper">
-    @foreach ($products as $product)
-      <div class="services__item">
+@foreach ($products as $product)
+      <div class="services__item @if($products->count() > 4) show @endif">
+        <input type="hidden" value="{{$product->description}}">
         <img src="/{{$product->image}}" alt="{{$product->title}}">
         <h3>{{$product->title}}</h3>
         @if (!empty($product->material ))
@@ -19,15 +17,6 @@
 
         </p>
 
-        <button class="btn"></button>
+        <button class="btn open-product"></button>
       </div>
     @endforeach
-  </div>
-  <button id="products_more">
-    @if (empty($btn))
-      Смотреть еще  
-    @else
-      Скрыть
-    @endif
-  </button>
-</div>

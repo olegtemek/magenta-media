@@ -25,6 +25,39 @@
 
   @yield('js')
 
+
+  <div class="modal">
+    <div class="modal__wrapper">
+      <h3>Оставить заявку</h3>
+      <div class="close">&#9587;</div>
+      <div class="modal__input">
+        <span>Это поле обязательно для заполнения</span>
+        <input type="text" placeholder="Имя" name="name">
+      </div>
+      <div class="modal__input">
+        <span>Это поле обязательно для заполнения</span>
+        <input type="text" class="input_number" placeholder="Телефон" name="number">
+      </div>
+      <div class=""><button class="btn send-simple">Отправить</button></div>
+    </div>
+  </div>
+
+  <div class="modal modal-product">
+    <div class="modal__wrapper">
+      <h3>Оставить заявку</h3>
+      <div class="close close-product">&#9587;</div>
+      <div class="modal__input">
+        <span>Это поле обязательно для заполнения</span>
+        <input type="text" placeholder="Имя" name="name">
+      </div>
+      <div class="modal__input">
+        <span>Это поле обязательно для заполнения</span>
+        <input type="text" class="input_number" placeholder="Телефон" name="number">
+      </div>
+      <div class=""><button class="btn send-simple">Отправить</button></div>
+    </div>
+  </div>
+
   @include('front.components.svg')
 
 </body>

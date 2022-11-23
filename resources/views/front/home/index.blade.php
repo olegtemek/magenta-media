@@ -1,17 +1,17 @@
 @extends('front.layouts.main')
 
 
-@section('seo_title', 'Main')
+@section('seo_title', $data['page']->seo_title)
 
-@section('seo_description', 'test')
+@section('seo_description', $data['page']->seo_description)
 
 
 
 
 @section('content')
-  <section class="intro intro__home">
+  <section class="intro intro__home parallax">
     <div class="intro__home-items">
-      <div class="intro__home-items-inner">
+      <div class="intro__home-items-inner parallax-item">
         <img src="{{Vite::assets('intro_home.png')}}" alt="Интро">
         <span>
           <span>{{env('APP_NAME')}}</span>
@@ -23,12 +23,11 @@
       </div>
     </div>
 
-    
     <div class="container">
       <div class="intro__wrapper">
         <div class="intro__left">
           <h2>{!! $data['page']->subtitle !!}</h2>
-          <button class="btn">Оставить заявку</button>
+          <button class="btn open-simple">Оставить заявку</button>
         </div>
       </div>
     </div>
@@ -38,7 +37,18 @@
 
 
   <section class="services" id="services">
-    @include('front.components.services', ['products'=>$data['products']])
+
+<div class="container">
+  <h2 class="title">Наши услуги</h2>
+  <div class="services__wrapper" id="products">
+    @include('front.components.products', ['products'=>$data['products']])
+  </div>
+    <button id="products_more">
+      Смотреть еще
+    </button>
+  </div>
+
+    
   </section>
   
   @include('front.components.work', ['galleries'=> $data['gallery']])

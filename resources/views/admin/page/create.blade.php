@@ -112,6 +112,15 @@
               <input type="text" value="{{ old('seo_description') }}" class="form-control" name="seo_description" placeholder="SEO Описание">
             </div>
           </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label>SEO текст</label>
+              @error('seo_text')
+              <span class="error text-danger">{{ $message }}</span>
+              @enderror
+              <textarea name="seo_text" style="min-height:200px;" class="form-control" placeholder="Seo текст">{{old('seo_text')}}</textarea>
+            </div>
+          </div>
         </div>
 
 

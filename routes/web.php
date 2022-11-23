@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\PageGalleryController as adminPageGalleryControll
 use App\Http\Controllers\admin\SettingController as adminSettingController;
 use App\Http\Controllers\admin\InstaController as adminInstaConroller;
 use App\Http\Controllers\front\IndexController;
+use App\Http\Controllers\front\MailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,7 +51,9 @@ Route::post('/login', [AuthController::class, 'request'])->name('login.post');
 
 Route::group(['as' => 'front.'], function () {
     Route::get('/', [IndexController::class, 'index'])->name('home.index');
-    Route::post('/get-products', [IndexController::class, 'getProducts'])->name('home.getProducts');
+    Route::get('/{slug}', [IndexController::class, 'other'])->name('other.index');
+    Route::post('/get-products', [IndexController::class, 'getProducts']);
+    Route::post('/send-mail', [MailController::class, 'mail'])->name('mail');
 });
 
 

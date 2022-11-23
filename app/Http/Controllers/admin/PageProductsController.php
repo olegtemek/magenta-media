@@ -49,6 +49,7 @@ class PageProductsController extends Controller
             'page_id' => $id,
             'price' => $request->price,
             'material' => $request->material,
+            'description' => $request->description,
         ]);
 
         return redirect()->route('admin.product.index', $id)->with('message', 'Товар успешно был добавлен');
@@ -96,6 +97,7 @@ class PageProductsController extends Controller
             'page_id' => $page_id,
             'price' => $request->price,
             'material' => $request->material,
+            'description' => $request->description,
         ]);
 
         return redirect()->route('admin.product.index', $page_id)->with('message', 'Товар успешно был изменен');

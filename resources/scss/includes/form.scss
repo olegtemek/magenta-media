@@ -53,9 +53,25 @@
     }
 
     &-input {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       width: 100%;
+      position: relative;
 
+
+      &.error {
+        span {
+          display: block;
+        }
+      }
+
+      span {
+        display: none;
+        position: absolute;
+        top: -16px;
+        left: 0;
+        font-size: 14px;
+        color: red;
+      }
 
       >input {
         width: 100%;
@@ -119,6 +135,24 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
+
+        &.error {
+          span {
+            display: block;
+          }
+        }
+
+        span {
+          display: none;
+          position: absolute;
+          top: -20px;
+          left: 0;
+          width: 110%;
+          font-size: 14px;
+          color: red;
+        }
+
 
         input {
           padding: 0;

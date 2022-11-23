@@ -20,6 +20,6 @@ class IndexController extends Controller
     }
     public function getProducts(Request $req)
     {
-        return view('front.components.services', ['products' => Product::where('page_id', $req->id)->get(), 'btn' => 'Скрыть']);
+        return view('front.components.products', ['products' => Product::where('page_id', $req->id)->get(), 'btn' => 'Скрыть']);
     }
 }
