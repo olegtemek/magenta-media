@@ -9,9 +9,17 @@ class MailController extends Controller
 {
     public function mail(Request $req)
     {
-        $name = $req->name;
-        $number = $req->number;
+        if ($req->type == 'simple') {
+            $name = $req->name;
+            $number = $req->number;
 
-        return $name . ' || ' . $number;
+            return $name . ' || ' . $number;
+        } else {
+            $name = $req->name;
+            $number = $req->number;
+            $title = $req->title;
+
+            return $name . ' || ' . $number . ' || ' . $title;
+        }
     }
 }

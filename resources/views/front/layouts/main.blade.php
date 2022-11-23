@@ -8,7 +8,6 @@
   <meta name="description" content="@yield('seo_description')">
 
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <script src="https://mapgl.2gis.com/api/js/v1"></script>
   @vite(['resources/js/app.js', 'resources/scss/app.scss'])
 </head>
 <body>
@@ -45,6 +44,18 @@
   <div class="modal modal-product">
     <div class="modal__wrapper">
       <h3>Оставить заявку</h3>
+
+      <div class="modal__product">
+        <div class="modal__product-left">
+          <h3></h3>
+          <p class="description"></p>
+          <p class="material"></p>
+          <p class="price"></p>
+        </div>
+        <div class="modal__product-right">
+          <img src="" alt="">
+        </div>
+      </div>
       <div class="close close-product">&#9587;</div>
       <div class="modal__input">
         <span>Это поле обязательно для заполнения</span>
@@ -54,7 +65,7 @@
         <span>Это поле обязательно для заполнения</span>
         <input type="text" class="input_number" placeholder="Телефон" name="number">
       </div>
-      <div class=""><button class="btn send-simple">Отправить</button></div>
+      <div class=""><button class="btn send-product">Отправить</button></div>
     </div>
   </div>
 

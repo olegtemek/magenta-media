@@ -16,7 +16,7 @@
         </div>
 
         <div class="form__inner-bottom">
-          <button class="btn send-simple" >Отправить</button>
+          <button class="btn send-simple-form" >Отправить</button>
 
           <div class="checkbox">
             <span>Это поле обязательно для заполнения</span>

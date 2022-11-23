@@ -5,9 +5,9 @@
         <img src="/{{$product->image}}" alt="{{$product->title}}">
         <h3>{{$product->title}}</h3>
         @if (!empty($product->material ))
-            <p>Материал: {{$product->material}}</p>
+            <p class="material">Материал: {{$product->material}}</p>
         @endif
-        <p>
+        <p class="price">
           Цена: 
           @if (!empty($product->price))
               <span>{{number_format($product->price, 0,'', ' ')}} тг.</span>

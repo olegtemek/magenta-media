@@ -13,6 +13,13 @@
   overflow: hidden;
   z-index: -1;
 
+  @media (max-width:375px) {
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: scroll !important;
+    height: 400px;
+  }
+
 
   &.active {
     opacity: 1;
@@ -54,6 +61,7 @@
 
     @media (max-width:375px) {
       padding: 14px;
+      min-width: 260px !important;
     }
 
     .close {
@@ -64,10 +72,69 @@
       color: $purple;
     }
 
-    h3 {
+    >h3 {
       font-size: 24px;
       font-weight: $fw-bold;
       padding-bottom: 20px;
+    }
+  }
+
+  &__product {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+    @media (max-width:620px) {
+      flex-direction: column-reverse;
+      align-items: center;
+      margin-bottom: 0;
+      margin-top: 4px;
+    }
+
+    &-left {
+      text-align: left;
+      max-width: 300px;
+      margin-right: 40px;
+
+      @media (max-width:620px) {
+        text-align: center;
+        margin-right: 0;
+        margin-top: 10px;
+      }
+
+      h3 {
+        font-size: 18px;
+        font-weight: $fw-medium;
+        padding-bottom: 10px;
+
+        @media (max-width:375px) {
+          font-size: 16px;
+        }
+      }
+
+      p {
+        padding-bottom: 10px;
+
+        @media (max-width:375px) {
+          font-size: 14px;
+          padding-bottom: 4px;
+        }
+
+        span {
+          font-weight: $fw-bold;
+        }
+      }
+
+    }
+
+    &-right {
+      img {
+        width: 160px;
+        height: 160px;
+        border-radius: $br;
+      }
     }
   }
 

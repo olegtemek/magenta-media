@@ -162,11 +162,6 @@ if (document.getElementById('products_more')) {
   let btn_more = document.getElementById('products_more')
   let page_id = document.getElementById('page_id').value;
 
-
-
-
-  //        ? document.getElementById('products_more').innerText = 'Смотреть еще' : document.getElementById('products_more').innerText = 'Скрыть'
-
   btn_more.addEventListener('click', () => {
     let wrapper_products = document.getElementById('products')
     if (btn_more.innerText == 'Скрыть') {
@@ -197,36 +192,12 @@ if (document.getElementById('products_more')) {
     if (res.status == 200) {
       wrapper_products.innerHTML = res.data
       btn_more.innerText = 'Скрыть'
+      productModal();
     }
   }
 }
 
 
-
-if (document.querySelectorAll('.send-simple')) {
-  let buttons = document.querySelectorAll('.send-simple');
-  buttons.forEach(button => {
-    button.addEventListener('click', async () => {
-      let parent = button.parentNode.parentNode;
-      let name = parent.querySelector('input[name="name"]')
-      let number = parent.querySelector('input[name="number"')
-      if (parent.querySelector('input[type="checkbox"]')) {
-        let check = parent.querySelector('input[type="checkbox"]')
-        !check.checked ? check.parentNode.classList.add('error') : check.parentNode.classList.remove('error')
-      }
-      name.value.trim().length <= 0 ? name.parentNode.classList.add('error') : name.parentNode.classList.remove('error')
-      number.value.trim().length <= 0 ? number.parentNode.classList.add('error') : number.parentNode.classList.remove('error')
-
-
-      if (parent.querySelector('.error')) {
-        return;
-      } else {
-        let res = await axios.post('send-mail', { name: name.value.trim(), number: number.value.trim() })
-        console.log(res);
-      }
-    })
-  });
-}
 
 if (document.querySelectorAll('.open-simple')) {
   document.querySelectorAll('.open-simple').forEach(button => {
@@ -238,20 +209,110 @@ if (document.querySelectorAll('.open-simple')) {
           document.querySelector('.modal').classList.remove('active')
         }
       })
-    })
-  });
-}
 
-if (document.querySelectorAll('open-product')) {
-  document.querySelectorAll('.open-product').forEach(button => {
-    button.addEventListener('click', () => {
-      document.querySelector('.modal-product').classList.add('active')
-      document.querySelector('.modal-product').addEventListener('click', (e) => {
 
-        if (e.target.classList[1] == 'modal-product' || e.target.classList[1] == 'close-product') {
-          document.querySelector('.modal-product').classList.remove('active')
+      // send
+
+      document.querySelector('.modal').querySelector('.send-simple').addEventListener('click', async () => {
+        let parent = document.querySelector('.modal').querySelector('.send-simple').parentNode.parentNode;
+        let name = parent.querySelector('input[name="name"]')
+        let number = parent.querySelector('input[name="number"')
+        if (parent.querySelector('input[type="checkbox"]')) {
+          let check = parent.querySelector('input[type="checkbox"]')
+          !check.checked ? check.parentNode.classList.add('error') : check.parentNode.classList.remove('error')
+        }
+        name.value.trim().length <= 0 ? name.parentNode.classList.add('error') : name.parentNode.classList.remove('error')
+        number.value.trim().length <= 0 ? number.parentNode.classList.add('error') : number.parentNode.classList.remove('error')
+
+
+        if (parent.querySelector('.error')) {
+          return;
+        } else {
+          let res = await axios.post('send-mail', { type: 'simple', name: name.value.trim(), number: number.value.trim() })
+          console.log(res);
         }
       })
     })
   });
+}
+
+function productModal() {
+  if (document.querySelectorAll('open-product')) {
+    document.querySelectorAll('.open-product').forEach(button => {
+      button.addEventListener('click', () => {
+        let modal = document.querySelector('.modal-product')
+        modal.classList.add('active')
+
+        let image = button.parentNode.querySelector('img').src
+        let description = button.parentNode.querySelector('input[type="hidden"]').value
+        let title = button.parentNode.querySelector('h3').innerText
+        let price = button.parentNode.querySelector('.price').innerHTML
+        let material = button.parentNode.querySelector('.material') ? button.parentNode.querySelector('.material').innerText : null;
+
+        modal.addEventListener('click', (e) => {
+
+          if (e.target.classList[1] == 'modal-product' || e.target.classList[1] == 'close-product') {
+            modal.classList.remove('active')
+          }
+        })
+
+        //insert to modal
+
+        let product_modal_left = modal.querySelector('.modal__product-left')
+        let product_modal_right = modal.querySelector('.modal__product-right')
+
+        //clear material
+        product_modal_left.querySelector('p.material').innerText = '';
+
+        product_modal_left.querySelector('h3').innerText = title
+        product_modal_left.querySelector('p.price').innerHTML = price
+        material != null ? product_modal_left.querySelector('p.material').innerText = material : ''
+        product_modal_left.querySelector('p.description').innerHTML = 'Краткое описание: ' + description
+
+        product_modal_right.querySelector('img').src = image
+
+        //send
+        modal.querySelector('.send-product').addEventListener('click', async () => {
+          let parent = modal.querySelector('.send-product').parentNode.parentNode;
+          let name = parent.querySelector('input[name="name"]')
+          let number = parent.querySelector('input[name="number"')
+          name.value.trim().length <= 0 ? name.parentNode.classList.add('error') : name.parentNode.classList.remove('error')
+          number.value.trim().length <= 0 ? number.parentNode.classList.add('error') : number.parentNode.classList.remove('error')
+
+
+          if (parent.querySelector('.error')) {
+            return;
+          } else {
+            let res = await axios.post('send-mail', { type: 'product', title: title, name: name.value.trim(), number: number.value.trim() })
+            console.log(res);
+          }
+        })
+
+      })
+    });
+  }
+}
+productModal()
+
+
+if (document.querySelector('.send-simple-form')) {
+  document.querySelector('.send-simple-form').addEventListener('click', async () => {
+    let parent = document.querySelector('.send-simple-form').parentNode.parentNode;
+    let name = parent.querySelector('input[name="name"]')
+    let number = parent.querySelector('input[name="number"')
+    if (parent.querySelector('input[type="checkbox"]')) {
+      let check = parent.querySelector('input[type="checkbox"]')
+      !check.checked ? check.parentNode.classList.add('error') : check.parentNode.classList.remove('error')
+    }
+    name.value.trim().length <= 0 ? name.parentNode.classList.add('error') : name.parentNode.classList.remove('error')
+    number.value.trim().length <= 0 ? number.parentNode.classList.add('error') : number.parentNode.classList.remove('error')
+
+
+    if (parent.querySelector('.error')) {
+      return;
+    } else {
+      let res = await axios.post('send-mail', { type: 'simple', name: name.value.trim(), number: number.value.trim() })
+      console.log(res);
+    }
+  })
 }
