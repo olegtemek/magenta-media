@@ -1,8 +1,12 @@
 .intro {
+  position: relative;
+  z-index: -1;
+
   &__default {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    margin-top: -10px;
 
     &.two {
       background-image: url('@assets/intro2.jpg');

@@ -4,7 +4,7 @@
       <nav class="footer__menu-links">
         <ul>
           <li>
-            <a href="{{route('front.home.index')}}"><img src="{{Vite::assets('logo.png')}}" alt="{{env('APP_NAME')}}"> {{env('APP_NAME')}}</a>
+            <a href="{{route('front.home.index')}}"><img src="{{Vite::asset('resources/assets/logo.png')}}" alt="{{env('APP_NAME')}}"> {{env('APP_NAME')}}</a>
           </li>
           <li>
             <a href="mailto:{{$global_data['settings']->email}}" target="_blank"> <span></span> {{$global_data['settings']->email}}</a>
@@ -32,7 +32,7 @@
     </div>
   </div>
   <div class="footer__map" id="map">
-    <img src="{{Vite::assets('map.png')}}" alt="Map">
+    <img src="{{Vite::asset('resources/assets/map.png')}}" alt="Map">
   </div>
   <div class="container">
     <span class="nasa">Разработано <a href="https://nasa.kz/" target="_blank">nasa.kz</a></span>

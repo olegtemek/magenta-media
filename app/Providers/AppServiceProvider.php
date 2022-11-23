@@ -68,6 +68,5 @@ class AppServiceProvider extends ServiceProvider
             $global_data['settings'] = Setting::find(1);
             View::share('global_data', $global_data);
         });
-        Vite::macro('assets', fn ($asset) => $this->asset("resources/assets/{$asset}"));
     }
 }

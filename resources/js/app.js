@@ -1,5 +1,9 @@
 import './bootstrap';
 
+import.meta.glob([
+  '../assets/**',
+]);
+
 import { Swiper, Navigation, Pagination, Autoplay } from 'swiper';
 import { Fancybox } from "@fancyapps/ui";
 import axios from 'axios';
@@ -160,11 +164,13 @@ if (document.querySelectorAll('.parallax-default').length >= 1) {
 
   const mediaQuery = window.matchMedia('(max-width: 1367px)')
 
-  let minusWidth = 180;
+
+  let minusWidth = 160;
 
   if (mediaQuery.matches) {
     minusWidth = 130;
   }
+
 
   function parallaxScroll(item) {
     if ((window.scrollY + window.innerHeight) >= item.offsetTop) {

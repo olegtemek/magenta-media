@@ -8,6 +8,7 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    build: { assetsInlineLimit: 0 },
     resolve: {
         alias: {
             '@assets': '/resources/assets/',

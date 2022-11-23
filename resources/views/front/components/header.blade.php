@@ -2,7 +2,7 @@
   <div class="container">
     <div class="header__wrapper">
       <div class="header__logo">
-        <a href="{{route('front.home.index')}}"><img src="{{Vite::assets('logo.png')}}" alt="{{env('APP_NAME')}}"> {{env('APP_NAME')}}</a>
+        <a href="{{route('front.home.index')}}"><img src="{{Vite::asset('resources/assets/logo.png')}}" alt="{{env('APP_NAME')}}"> {{env('APP_NAME')}}</a>
         <svg class="icon" id="burger_btn">
           <use xlink:href="#burger"></use>
         </svg>

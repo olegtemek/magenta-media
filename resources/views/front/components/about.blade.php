@@ -6,7 +6,7 @@
         <p>Magenta Media - у нас вы можете заказать полный спект услуг по живой рекламе. Вывески, банеры, брендированная одежда, сувениры и многое другое</p>
       </div>
       <div class="about__right">
-        <img src="{{Vite::assets('about.png')}}" alt="О компании">
+        <img src="{{Vite::asset('resources/assets/about.png')}}" alt="О компании">
       </div>
     </div>
   </div>

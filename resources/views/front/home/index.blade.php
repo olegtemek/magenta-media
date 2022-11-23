@@ -12,12 +12,12 @@
   <section class="intro intro__home parallax">
     <div class="intro__home-items">
       <div class="intro__home-items-inner parallax-item">
-        <img src="{{Vite::assets('intro1.png')}}" alt="Интро">
+        <img src="{{Vite::asset('resources/assets/intro1.png')}}" alt="Интро">
         <span>
           <span>{{env('APP_NAME')}}</span>
         </span>
         <div>
-          <img src="{{Vite::assets('logo.png')}}" alt="{{env('APP_NAME')}}Интро">
+          <img src="{{Vite::asset('resources/assets/logo.png')}}" alt="{{env('APP_NAME')}}Интро">
           <h4>{{env('APP_NAME')}}</h4>
         </div>
       </div>
