@@ -7,6 +7,14 @@
   width: 100%;
   overflow: hidden;
 
+  @media (max-width:1050px) {
+    h2 {
+      color: $white;
+      text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+    }
+  }
+
+
   &-items {
     position: absolute;
     z-index: -2;

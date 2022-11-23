@@ -11,7 +11,7 @@
   @vite(['resources/js/app.js', 'resources/scss/app.scss'])
 </head>
 <body>
-  
+  <input type="hidden" class="page_id" value="{{$data['page']->id}}">
   @include('front.components.header')
   @include('front.components.menu')
 
@@ -44,7 +44,6 @@
   <div class="modal modal-product">
     <div class="modal__wrapper">
       <h3>Оставить заявку</h3>
-
       <div class="modal__product">
         <div class="modal__product-left">
           <h3></h3>

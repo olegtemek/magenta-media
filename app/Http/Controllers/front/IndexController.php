@@ -22,4 +22,13 @@ class IndexController extends Controller
     {
         return view('front.components.products', ['products' => Product::where('page_id', $req->id)->get(), 'btn' => 'Скрыть']);
     }
+    public function other($slug)
+    {
+        $data  = [];
+        $data['page'] = Page::where('slug', $slug)->first();
+        $data['products'] = Product::where('page_id', $data['page']->id)->limit(4)->get();
+        $data['gallery'] = Gallery::where('page_id', $data['page']->id)->get();
+
+        return view('front.other.index', compact('data'));
+    }
 }

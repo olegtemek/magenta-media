@@ -26,9 +26,13 @@
               </a>
             </li>
 
-            @foreach ($global_data['pages']->reverse() as $page)
+            @foreach ($global_data['pages']->reverse() as $key=> $page)
               <li class="link_menu">
-                <a href="{{route('front.other.index', $page->slug)}}">{{$page->title}}</a>
+                @if($key == 0)
+                <a href="{{route('front.home.index')}}" >{{$page->title}}</a>
+                @else
+                <a href="{{route('front.other.index', $page->slug)}}" >{{$page->title}}</a>
+                @endif
               </li>
             @endforeach
           </ul>

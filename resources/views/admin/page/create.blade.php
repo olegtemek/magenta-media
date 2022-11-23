@@ -24,6 +24,15 @@
               <input type="text" value="{{ old('title') }}" class="form-control" name="title" placeholder="Заголовок">
             </div>
           </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label>Краткое описание(необязательно)</label>
+              @error('description')
+              <span class="error text-danger">{{ $message }}</span>
+              @enderror
+              <input type="text" value="{{ old('description') }}" class="form-control" name="description" placeholder="Краткое описание(необязательно)">
+            </div>
+          </div>
     
           <div class="col-sm-4">
             <div class="form-group">

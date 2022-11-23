@@ -44,12 +44,14 @@ class PageController extends Controller
             'title' => $request->title,
             'subtitle' => $request->subtitle,
             'image' => $request->image,
+            'description' => $request->description,
             'custom_title' => $request->custom_title,
             'custom_description' => $request->custom_description,
             'custom_image' => $request->custom_image,
             'seo_title' => $request->seo_title,
             'seo_description' => $request->seo_description,
-            'slug' => Str::slug($request->slug)
+            'slug' => Str::slug($request->slug),
+
         ]);
 
         return redirect()->route('admin.page.index')->with('message', 'Страница была добавлена');
@@ -86,7 +88,7 @@ class PageController extends Controller
      */
     public function update(PageRequest $request, $id)
     {
-        Page::find($id)->update($request->only(['title', 'subtitle', 'image', 'custom_title', 'custom_description', 'custom_image', 'seo_title', 'seo_description']));
+        Page::find($id)->update($request->only(['title', 'subtitle', 'description', 'image', 'custom_title', 'custom_description', 'custom_image', 'seo_title', 'seo_description']));
 
         return redirect()->route('admin.page.index')->with('message', 'Страница была изменена');
     }

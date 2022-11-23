@@ -1,4 +1,4 @@
-<div class="form">
+<div class="form parallax-default">
   <div class="container">
     <div class="form__wrapper">
       <div class="form__inner">

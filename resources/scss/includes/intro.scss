@@ -1,4 +1,53 @@
 .intro {
+  &__default {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &.two {
+      background-image: url('@assets/intro2.jpg');
+    }
+
+    &.three {
+      background-image: url('@assets/intro3.jpg');
+      color: $white;
+    }
+
+    &.four {
+      background-image: url('@assets/intro4.jpg');
+    }
+
+    &.five {
+      background-image: url('@assets/intro5.jpg');
+      color: $white;
+    }
+
+    @media (max-width:1024px) {
+      background-position: -200px;
+    }
+
+    @media (max-width:690px) {
+      background-position: -50vw;
+    }
+
+    @media (max-width:560px) {
+      background-position: left;
+      padding-left: 20px;
+
+      .intro__wrapper {
+        align-items: center;
+        justify-content: center;
+        text-align: center !important;
+
+      }
+    }
+
+    @media (max-width:375px) {
+      padding-left: 0;
+      background-position: -20px;
+    }
+  }
+
   &__wrapper {
     height: 520px;
     display: flex;
@@ -21,17 +70,26 @@
   }
 
   &__left {
-    max-width: 300px;
+    max-width: 540px;
+
+    @media (max-width:690px) {
+      max-width: 320px;
+    }
 
     @media (max-width:390px) {
       max-width: 100%;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 22px;
+      max-width: 320px;
     }
 
     h2 {
       font-size: 40px;
       line-height: 60px;
       text-transform: uppercase;
-      padding-bottom: 60px;
 
       @media (max-width:1366px) {
         font-size: 30px;
@@ -39,14 +97,8 @@
       }
 
 
-      @media (max-width:1050px) {
-        color: $white;
-        text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
-      }
-
       @media (max-width:690px) {
         font-size: 30px;
-        padding-bottom: 20px;
       }
 
       @media (max-width:390px) {
@@ -73,12 +125,19 @@
     }
 
     button {
+      margin-top: 60px;
       background-color: $purple;
       text-transform: uppercase;
       padding: 26px 34px;
 
+
+
       @media (max-width:1366px) {
         padding: 18px 26px;
+      }
+
+      @media (max-width:690px) {
+        margin-top: 20px;
       }
 
       @media (max-width:630px) {

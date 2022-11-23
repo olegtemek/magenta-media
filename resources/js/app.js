@@ -123,7 +123,7 @@ if (document.querySelector('.input_number')) {
 
 
 
-if (document.querySelectorAll('.parallax')) {
+if (document.querySelectorAll('.parallax').length >= 1) {
   const parallaxBlocks = document.querySelectorAll('.parallax-item');
 
   const mediaQuery = window.matchMedia('(max-width: 1360px)')
@@ -143,6 +143,34 @@ if (document.querySelectorAll('.parallax')) {
       let scrollLength = (((window.scrollY) - ((item.offsetTop) - window.innerHeight)) / 6);
       scrollLength = Math.round(scrollLength);
       item.style.top = `${scrollLength - minusWidth}px`;
+    }
+  }
+
+  parallaxScroll(parallaxBlocks[0]);
+
+  parallaxBlocks.forEach(item => {
+    document.addEventListener('scroll', () => {
+      parallaxScroll(item);
+    });
+  });
+}
+
+if (document.querySelectorAll('.parallax-default').length >= 1) {
+  const parallaxBlocks = document.querySelectorAll('.parallax-default');
+
+  const mediaQuery = window.matchMedia('(max-width: 1367px)')
+
+  let minusWidth = 180;
+
+  if (mediaQuery.matches) {
+    minusWidth = 130;
+  }
+
+  function parallaxScroll(item) {
+    if ((window.scrollY + window.innerHeight) >= item.offsetTop) {
+      let scrollLength = (((window.scrollY) - ((item.offsetTop) - window.innerHeight)) / 6);
+      scrollLength = Math.round(scrollLength);
+      item.style.backgroundPositionY = `${scrollLength - minusWidth}px`;
     }
   }
 
@@ -201,7 +229,7 @@ if (document.getElementById('products_more')) {
 
 
 
-if (document.querySelectorAll('.open-simple')) {
+if (document.querySelectorAll('.open-simple').length >= 1) {
   document.querySelectorAll('.open-simple').forEach(button => {
     button.addEventListener('click', () => {
       document.querySelector('.modal').classList.add('active')
@@ -223,14 +251,14 @@ if (document.querySelectorAll('.open-simple')) {
           let check = parent.querySelector('input[type="checkbox"]')
           !check.checked ? check.parentNode.classList.add('error') : check.parentNode.classList.remove('error')
         }
+        let page_id = document.querySelector('.page_id').value
         name.value.trim().length <= 0 ? name.parentNode.classList.add('error') : name.parentNode.classList.remove('error')
         number.value.trim().length <= 0 ? number.parentNode.classList.add('error') : number.parentNode.classList.remove('error')
-
 
         if (parent.querySelector('.error')) {
           return;
         } else {
-          let res = await axios.post('send-mail', { type: 'simple', name: name.value.trim(), number: number.value.trim() })
+          let res = await axios.post('send-mail', { page_id: page_id, type: 'simple', name: name.value.trim(), number: number.value.trim() })
           console.log(res);
         }
       })
@@ -239,7 +267,7 @@ if (document.querySelectorAll('.open-simple')) {
 }
 
 function productModal() {
-  if (document.querySelectorAll('open-product')) {
+  if (document.querySelectorAll('open-product').length >= 1) {
     document.querySelectorAll('.open-product').forEach(button => {
       button.addEventListener('click', () => {
         let modal = document.querySelector('.modal-product')
@@ -250,6 +278,7 @@ function productModal() {
         let title = button.parentNode.querySelector('h3').innerText
         let price = button.parentNode.querySelector('.price').innerHTML
         let material = button.parentNode.querySelector('.material') ? button.parentNode.querySelector('.material').innerText : null;
+
 
         modal.addEventListener('click', (e) => {
 
@@ -297,12 +326,12 @@ function productModal() {
           let number = parent.querySelector('input[name="number"')
           name.value.trim().length <= 0 ? name.parentNode.classList.add('error') : name.parentNode.classList.remove('error')
           number.value.trim().length <= 0 ? number.parentNode.classList.add('error') : number.parentNode.classList.remove('error')
-
+          let page_id = document.querySelector('.page_id').value
 
           if (parent.querySelector('.error')) {
             return;
           } else {
-            let res = await axios.post('send-mail', { type: 'product', title: title, name: name.value.trim(), number: number.value.trim() })
+            let res = await axios.post('send-mail', { page_id: page_id, type: 'product', title: title, name: name.value.trim(), number: number.value.trim() })
             console.log(res);
           }
         })
@@ -323,6 +352,7 @@ if (document.querySelector('.send-simple-form')) {
       let check = parent.querySelector('input[type="checkbox"]')
       !check.checked ? check.parentNode.classList.add('error') : check.parentNode.classList.remove('error')
     }
+    let page_id = document.querySelector('.page_id').value
     name.value.trim().length <= 0 ? name.parentNode.classList.add('error') : name.parentNode.classList.remove('error')
     number.value.trim().length <= 0 ? number.parentNode.classList.add('error') : number.parentNode.classList.remove('error')
 
@@ -330,7 +360,7 @@ if (document.querySelector('.send-simple-form')) {
     if (parent.querySelector('.error')) {
       return;
     } else {
-      let res = await axios.post('send-mail', { type: 'simple', name: name.value.trim(), number: number.value.trim() })
+      let res = await axios.post('send-mail', { page_id: page_id, type: 'simple', name: name.value.trim(), number: number.value.trim() })
       console.log(res);
     }
   })
