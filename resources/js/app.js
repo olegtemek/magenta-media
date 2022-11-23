@@ -4,6 +4,8 @@ import { Swiper, Navigation, Pagination, Autoplay } from 'swiper';
 import { Fancybox } from "@fancyapps/ui";
 import axios from 'axios';
 
+
+
 if (document.querySelector('.work__slider')) {
 
   const swiper = new Swiper('.work__slider', {
@@ -78,7 +80,7 @@ if (document.getElementById('burger_btn')) {
 if (document.getElementById('map')) {
   let count = 0
   document.getElementById('map').addEventListener('mouseover', () => {
-    count++ == 1 ? document.getElementById('map').innerHTML = `<iframe style="filter: grayscale(1) invert(100%) !important;" <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae277ef7a4bef301873ba91b5618c50a03ebb247d0902019e2c7ab70411cd74a7&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>` : ''
+    count++ == 1 ? document.getElementById('map').innerHTML = `<iframe <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae277ef7a4bef301873ba91b5618c50a03ebb247d0902019e2c7ab70411cd74a7&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>` : ''
   })
 }
 
@@ -256,10 +258,13 @@ function productModal() {
           }
         })
 
+
         //insert to modal
 
         let product_modal_left = modal.querySelector('.modal__product-left')
         let product_modal_right = modal.querySelector('.modal__product-right')
+
+
 
         //clear material
         product_modal_left.querySelector('p.material').innerText = '';
@@ -270,6 +275,20 @@ function productModal() {
         product_modal_left.querySelector('p.description').innerHTML = 'Краткое описание: ' + description
 
         product_modal_right.querySelector('img').src = image
+
+
+        //if has error then clear
+
+        if (modal.querySelectorAll('.error')) {
+          let clear = modal.querySelectorAll('.error');
+          clear.forEach(clear_item => {
+            clear_item.classList.remove('error')
+          });
+        }
+
+
+
+
 
         //send
         modal.querySelector('.send-product').addEventListener('click', async () => {
