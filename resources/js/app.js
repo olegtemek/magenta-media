@@ -162,13 +162,26 @@ if (document.querySelectorAll('.parallax').length >= 1) {
 if (document.querySelectorAll('.parallax-default').length >= 1) {
   const parallaxBlocks = document.querySelectorAll('.parallax-default');
 
-  const mediaQuery = window.matchMedia('(max-width: 1367px)')
+  const mediaQuery = window.matchMedia('(max-width: 1366px)')
+  const mediaQueryMini = window.matchMedia('(max-width: 1600px)');
+  const mediaQueryMed = window.matchMedia('(max-width: 1112px)');
+
+  const mediaQueryMob = window.matchMedia('(max-width: 600px)');
 
 
-  let minusWidth = 160;
+  let minusWidth = 180;
 
+  if (mediaQueryMini.matches) {
+    minusWidth = 150;
+  }
   if (mediaQuery.matches) {
-    minusWidth = 130;
+    minusWidth = 170;
+  }
+  if (mediaQueryMed.matches) {
+    minusWidth = 134;
+  }
+  if (mediaQueryMob.matches) {
+    minusWidth = 120;
   }
 
 

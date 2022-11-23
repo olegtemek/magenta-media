@@ -29,6 +29,10 @@ class IndexController extends Controller
         $data['products'] = Product::where('page_id', $data['page']->id)->limit(4)->get();
         $data['gallery'] = Gallery::where('page_id', $data['page']->id)->get();
 
+        if ($data['page']->id == 1) {
+            return abort(404);
+        }
+
         return view('front.other.index', compact('data'));
     }
 }
