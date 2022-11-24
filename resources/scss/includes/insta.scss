@@ -6,6 +6,10 @@
     margin-top: 80px;
   }
 
+  @media (max-width:740px) {
+    margin-top: 40px;
+  }
+
   &__wrapper {
     display: flex;
     align-items: center;
@@ -95,13 +99,15 @@
     padding-bottom: 60px;
 
     @media (max-width:1024px) {
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
       gap: 20px;
-      justify-content: space-evenly;
     }
 
     @media (max-width:500px) {
       padding-bottom: 40px;
+      grid-template-columns: repeat(2, 1fr);
     }
 
     >a {

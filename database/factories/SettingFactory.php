@@ -19,7 +19,7 @@ class SettingFactory extends Factory
         return [
             'email' => 'info@name.kz',
             'address' => 'ул. Толе-би 108, 3 этаж, офис 35/2',
-            'number_whatsapp' => '+7 (771) 754 03 51',
+            'number_whatsapp' => '+77717540351',
             'number' => '+7 (771) 754 03 51',
             'instagram' => 'magentamedia.kz'
         ];

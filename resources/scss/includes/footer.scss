@@ -4,6 +4,10 @@
   padding-top: 28px;
   margin-top: 120px;
 
+  @media (max-width:1024px) {
+    margin-top: 60px;
+  }
+
   .nasa {
     display: inline-block;
     padding: 10px 0;
@@ -34,8 +38,8 @@
         width: 100%;
 
         @media (max-width:660px) {
+          flex-direction: row-reverse;
           flex-wrap: wrap;
-          gap: 20px;
           justify-content: center;
 
           >li {
@@ -44,6 +48,17 @@
         }
 
         li {
+
+          @media (max-width:660px) {
+            padding: 8px;
+
+            a {
+              span {
+                display: none !important;
+              }
+            }
+          }
+
           &:first-child {
             img {
               margin-right: 10px;

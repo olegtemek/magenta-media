@@ -220,6 +220,7 @@ if (document.getElementById('products_more')) {
           btn_more.innerText = 'Смотреть еще'
         }
       });
+      document.querySelector('.services').scrollIntoView();
       return;
     }
 

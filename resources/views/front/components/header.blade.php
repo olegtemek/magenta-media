@@ -18,7 +18,7 @@
               <a href="https://go.2gis.com/if77e" target="_blank"> <span></span> {{$global_data['settings']->address}}</a>
             </li>
             <li>
-              <a href="tel:{{$global_data['settings']->number}}" target="_blank"> 
+              <a href="https://wa.me/{{$global_data['settings']->number_whatsapp}}?text=Здравствуйте" target="_blank"> 
                 <svg class="icon">
                   <use xlink:href="#whatsapp"></use>
                 </svg> 
