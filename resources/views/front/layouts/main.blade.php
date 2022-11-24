@@ -68,6 +68,11 @@
     </div>
   </div>
 
+  <div class="success">
+    <h2>Ваша заявка отправленна</h2>
+    <p>Мы свяжемся с вами в скором времени</p>
+  </div>
+
   @include('front.components.svg')
 
 </body>

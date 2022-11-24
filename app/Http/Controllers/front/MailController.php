@@ -3,26 +3,35 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
+use App\Mail\MailSend;
 use App\Models\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail as FacadesMail;
 
 class MailController extends Controller
 {
     public function mail(Request $req)
     {
-        $name = $req->name;
-        $number = $req->number;
-        $page_id = $req->page_id;
-        $page = Page::find($page_id);
+        $mailData = [];
+        $mailData['name'] = $req->name;
+        $mailData['number'] = $req->number;
+        $mailData['page_id'] = $req->page_id;
+        $page = Page::find($mailData['page_id']);
 
-        if ($req->type == 'simple') {
+        $mailData['page_name'] = $page->title;
 
-
-            return $name . ' || ' . $number . ' || ' . $page_id;
+        if ($req->type == 2) {
+            FacadesMail::to('your_email@gmail.com')->send(new MailSend($mailData));
+            return response()->json([
+                'status' => 200
+            ]);
         } else {
-            $title = $req->title;
+            $mailData['title'] = $req->title;
 
-            return $name . ' || ' . $number . ' || ' . $title . ' || ' . $page_id;
+            FacadesMail::to('your_email@gmail.com')->send(new MailSend($mailData));
+            return response()->json([
+                'status' => 200
+            ]);
         }
     }
 }

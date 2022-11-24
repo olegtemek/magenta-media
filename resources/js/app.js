@@ -278,8 +278,16 @@ if (document.querySelectorAll('.open-simple').length >= 1) {
         if (parent.querySelector('.error')) {
           return;
         } else {
-          let res = await axios.post('send-mail', { page_id: page_id, type: 'simple', name: name.value.trim(), number: number.value.trim() })
-          console.log(res);
+          let res = await axios.post('send-mail', { page_id: page_id, type: 2, name: name.value.trim(), number: number.value.trim() })
+          if (res.data.status == 200) {
+            name.value = ''
+            number.value = ''
+            document.querySelector('.modal').classList.remove('active')
+            document.querySelector('.success').classList.add('active')
+            setTimeout(() => {
+              document.querySelector('.success').classList.remove('active')
+            }, 3000);
+          }
         }
       })
     })
@@ -352,7 +360,15 @@ function productModal() {
             return;
           } else {
             let res = await axios.post('send-mail', { page_id: page_id, type: 'product', title: title, name: name.value.trim(), number: number.value.trim() })
-            console.log(res);
+            if (res.data.status == 200) {
+              modal.classList.remove('active')
+              name.value = ''
+              number.value = ''
+              document.querySelector('.success').classList.add('active')
+              setTimeout(() => {
+                document.querySelector('.success').classList.remove('active')
+              }, 3000);
+            }
           }
         })
 
@@ -381,8 +397,15 @@ if (document.querySelector('.send-simple-form')) {
     if (parent.querySelector('.error')) {
       return;
     } else {
-      let res = await axios.post('send-mail', { page_id: page_id, type: 'simple', name: name.value.trim(), number: number.value.trim() })
-      console.log(res);
+      let res = await axios.post('send-mail', { page_id: page_id, type: 2, name: name.value.trim(), number: number.value.trim() })
+      if (res.data.status == 200) {
+        name.value = ''
+        number.value = ''
+        document.querySelector('.success').classList.add('active')
+        setTimeout(() => {
+          document.querySelector('.success').classList.remove('active')
+        }, 3000);
+      }
     }
   })
 }

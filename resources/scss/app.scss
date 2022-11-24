@@ -69,3 +69,46 @@ body {
   transition: $tr;
   color: $white;
 }
+
+
+.success {
+  position: fixed;
+  top: -50px;
+  right: 0;
+  padding: 20px;
+  color: $white;
+  z-index: 9999;
+  background-color: $black;
+  border-radius: 0 0 0 $br ;
+  border: 1px solid $purple;
+  text-align: center;
+  overflow: hidden;
+  opacity: 0;
+  transition: $tr;
+
+  @media (max-width:500px) {
+    padding: 10px;
+    max-width: 220px;
+  }
+
+  &.active {
+    top: 0px !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+  }
+
+  h2 {
+    font-size: 20px;
+    padding-bottom: 10px;
+
+    @media (max-width:500px) {
+      font-size: 16px;
+    }
+  }
+
+  p {
+    @media (max-width:500px) {
+      font-size: 14px;
+    }
+  }
+}
