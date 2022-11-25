@@ -9,30 +9,7 @@
 
 
 @section('content')
-  <section class="intro intro__default parallax-default
-    @if($data['page']->id == 2)
-      two
-    @elseif($data['page']->id == 3)
-      three
-    @elseif($data['page']->id == 4)
-      four
-    @elseif($data['page']->id == 5)
-      five
-    @endif
-  ">
-    <div class="container">
-      <div class="intro__wrapper">
-        <div class="intro__left">
-          <h2>{!! $data['page']->subtitle !!}</h2>
-          @if($data['page']->description)
-          <p>{{$data['page']->description}}</p>
-          @endif
-
-          <button class="btn open-simple">Оставить заявку</button>
-        </div>
-      </div>
-    </div>
-  </section>
+  @include('front.components.intro_default', ['page'=>$data['page']])
 
   <input type="hidden" id="page_id" value="{{$data['page']->id}}">
 

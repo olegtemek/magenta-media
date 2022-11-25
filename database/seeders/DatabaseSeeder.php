@@ -35,6 +35,8 @@ class DatabaseSeeder extends Seeder
                 'custom_description' => 'Каждый проект изготавливается исходя из пожеланий клиента',
                 'custom_image' => 'images/custom_block/custom_image1.png',
                 'slug' => 'narujnyaa-reklama',
+                'intro_bg' => '',
+                'intro_bg_cover' => '',
             ],
             [
                 'title' => 'Типография',
@@ -45,6 +47,8 @@ class DatabaseSeeder extends Seeder
                 'custom_description' => 'Мы можем изготовить большой объём материалов',
                 'custom_image' => 'images/custom_block/custom_image2.png',
                 'slug' => 'tipografiya',
+                'intro_bg' => 'images/intros/intro2.jpg',
+                'intro_bg_cover' => 'images/intros/intro2_1.png',
             ],
             [
                 'title' => 'Сувенирная продукция',
@@ -55,6 +59,8 @@ class DatabaseSeeder extends Seeder
                 'custom_description' => 'Мы изготавливаем продукцию под заказ добавляя ваши фирменные цвета и логотипы исходя из пожеланий',
                 'custom_image' => 'images/custom_block/custom_image3.png',
                 'slug' => 'suvenir',
+                'intro_bg' => 'images/intros/intro3.jpg',
+                'intro_bg_cover' => 'images/intros/intro3_1.png',
             ],
             [
                 'title' => 'Пошив и брендирование униформы',
@@ -65,6 +71,8 @@ class DatabaseSeeder extends Seeder
                 'custom_description' => 'Мы изготавливаем продукцию под заказ добавляя ваши фирменные цвета и логотипы исходя из пожеланий',
                 'custom_image' => 'images/custom_block/custom_image4.png',
                 'slug' => 'poshiv',
+                'intro_bg' => 'images/intros/intro4.jpg',
+                'intro_bg_cover' => 'images/intros/intro4_1.png',
             ],
             [
                 'title' => 'Производство одноразовых стаканов',
@@ -75,6 +83,8 @@ class DatabaseSeeder extends Seeder
                 'custom_description' => 'Мы изготавливаем продукцию под заказ добавляя ваши фирменные цвета и логотипы исходя из пожеланий',
                 'custom_image' => 'images/custom_block/custom_image5.png',
                 'slug' => 'proizvod',
+                'intro_bg' => 'images/intros/intro5.jpg',
+                'intro_bg_cover' => 'images/intros/intro5_1.png',
             ],
         ];
 

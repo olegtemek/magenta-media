@@ -159,49 +159,6 @@ if (document.querySelectorAll('.parallax').length >= 1) {
   });
 }
 
-if (document.querySelectorAll('.parallax-default').length >= 1) {
-  const parallaxBlocks = document.querySelectorAll('.parallax-default');
-
-  const mediaQuery = window.matchMedia('(max-width: 1366px)')
-  const mediaQueryMini = window.matchMedia('(max-width: 1600px)');
-  const mediaQueryMed = window.matchMedia('(max-width: 1112px)');
-
-  const mediaQueryMob = window.matchMedia('(max-width: 600px)');
-
-
-  let minusWidth = 180;
-
-  if (mediaQueryMini.matches) {
-    minusWidth = 150;
-  }
-  if (mediaQuery.matches) {
-    minusWidth = 170;
-  }
-  if (mediaQueryMed.matches) {
-    minusWidth = 134;
-  }
-  if (mediaQueryMob.matches) {
-    minusWidth = 120;
-  }
-
-
-  function parallaxScroll(item) {
-    if ((window.scrollY + window.innerHeight) >= item.offsetTop) {
-      let scrollLength = (((window.scrollY) - ((item.offsetTop) - window.innerHeight)) / 6);
-      scrollLength = Math.round(scrollLength);
-      item.style.backgroundPositionY = `${scrollLength - minusWidth}px`;
-    }
-  }
-
-  parallaxScroll(parallaxBlocks[0]);
-
-  parallaxBlocks.forEach(item => {
-    document.addEventListener('scroll', () => {
-      parallaxScroll(item);
-    });
-  });
-}
-
 
 
 
@@ -408,4 +365,54 @@ if (document.querySelector('.send-simple-form')) {
       }
     }
   })
+}
+
+if (document.querySelector('.intro__default')) {
+  let intro = document.querySelector('.intro__default');
+  intro.addEventListener("mousemove", parallax);
+
+  function parallax(event) {
+    this.querySelectorAll(".intro__default >span").forEach((shift) => {
+      const position = shift.getAttribute("value");
+      const x = (window.innerWidth - event.pageX * position) / 90;
+      const y = (window.innerHeight - event.pageY * position) / 90;
+
+      shift.style.transform = `translateX(${x}px) translateY(${y}px)`;
+      shift.style.bottom = `20px`
+
+      if (window.matchMedia('(max-width: 1360px)')) {
+        shift.style.bottom = `14px`
+      }
+    });
+  }
+
+
+
+  if (document.querySelectorAll('.parallax-default').length >= 1) {
+    const parallaxBlocks = document.querySelectorAll('.parallax-default');
+
+    const mediaQueryMini = window.matchMedia('(max-width: 1600px)');
+
+
+    let minusWidth = 180;
+
+
+
+
+    function parallaxScroll(item) {
+      if ((window.scrollY + window.innerHeight) >= item.offsetTop) {
+        let scrollLength = (((window.scrollY) - ((item.offsetTop) - window.innerHeight)) / 6);
+        scrollLength = Math.round(scrollLength);
+        item.style.backgroundPositionY = `${scrollLength - minusWidth}px`;
+      }
+    }
+
+    parallaxScroll(parallaxBlocks[0]);
+
+    parallaxBlocks.forEach(item => {
+      document.addEventListener('scroll', () => {
+        parallaxScroll(item);
+      });
+    });
+  }
 }

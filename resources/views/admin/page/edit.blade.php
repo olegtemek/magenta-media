@@ -101,6 +101,40 @@
           </div>
         </div>
 
+        <div class="col-sm-12 row mt-4 mb-4">
+          <h2 class="col-sm-12">Настройки блока "Интро(необязательно)"</h2>
+          <div class="col-sm-6">
+            <div class="form-group">
+              @error('intro_bg')
+                <span class="error text-danger">{{ $message }}</span>
+              @enderror
+              <div class="row col-sm-4 input-group">
+                <label style="display: block; width:100%">Изображение для всего блока</label>
+                <input type="text" class="form-control" id="intro_bg" name="intro_bg" value="{{ $item->intro_bg }}">
+                <div class="input-group-prepend">
+                  <a href="" class="popup_selector btn btn-success" data-inputid="intro_bg"><i class="fas fa-file"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              @error('intro_bg_cover')
+                <span class="error text-danger">{{ $message }}</span>
+              @enderror
+              <div class="row col-sm-4 input-group">
+                <label style="display: block; width:100%">Изображение для анимации</label>
+                <input type="text" class="form-control" id="intro_bg_cover" name="intro_bg_cover" value="{{ $item->intro_bg_cover }}">
+                <div class="input-group-prepend">
+                  <a href="" class="popup_selector btn btn-success" data-inputid="intro_bg_cover"><i class="fas fa-file"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
 
         <div class="col-sm-12 row mt-4">
           <h2 class="col-sm-12">Seo (необязательно)</h2>

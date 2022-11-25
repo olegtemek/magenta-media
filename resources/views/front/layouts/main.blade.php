@@ -20,6 +20,9 @@
   @include('front.components.about')
   @include('front.components.insta')
   @include('front.components.select', ['pages'=>$global_data['pages']])
+  @if ($data['page']->seo_text)
+      {!! $data['page']->seo_text !!}
+  @endif
   @include('front.components.footer', ['pages'=>$global_data['pages']])
 
   @yield('js')

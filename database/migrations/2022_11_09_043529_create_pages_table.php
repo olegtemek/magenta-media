@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('seo_title')->nullable();
             $table->string('seo_description')->nullable();
             $table->longText('seo_text')->nullable();
+            $table->string('intro_bg')->nullable();
+            $table->string('intro_bg_cover')->nullable();
             $table->string('slug');
             $table->timestamps();
         });
