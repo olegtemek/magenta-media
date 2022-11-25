@@ -132,6 +132,10 @@
       img {
         width: 100%;
 
+        @media (max-width:515px) {
+          transform: scale(-1, 1);
+        }
+
       }
     }
   }
