@@ -391,12 +391,13 @@ if (document.querySelector('.intro__default')) {
   if (document.querySelectorAll('.parallax-default').length >= 1) {
     const parallaxBlocks = document.querySelectorAll('.parallax-default');
 
-    const mediaQueryMini = window.matchMedia('(max-width: 1600px)');
+    const mediaQueryMini = window.matchMedia('(max-width: 1400px)');
 
 
-    let minusWidth = 180;
-
-
+    let minusWidth = 190;
+    if (mediaQueryMini.matches) {
+      minusWidth = 120;
+    }
 
 
     function parallaxScroll(item) {

@@ -1,4 +1,4 @@
-<section class="intro intro__default parallax-default {{$page->slug}}" style="background-image: url('/{{$page->intro_bg}}')">
+<section class="intro intro__default parallax-default {{$page->slug}}" style="background: url('/{{$page->intro_bg}}') no-repeat center/auto;">
     <span value="-5"><img src="/{{$page->intro_bg_cover}}" alt="{{$page->title}} || Intro"></span>
     <div class="container">
       <div class="intro__wrapper">

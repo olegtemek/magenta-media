@@ -8,6 +8,7 @@ use App\Models\Setting;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use EspressoDev\InstagramBasicDisplay\InstagramBasicDisplay;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Vite;
 
 class AppServiceProvider extends ServiceProvider
@@ -67,6 +68,9 @@ class AppServiceProvider extends ServiceProvider
 
             $global_data['settings'] = Setting::find(1);
             View::share('global_data', $global_data);
+            if (env('APP_ENV' !== 'local')) {
+                URL::forceScheme('https');
+            }
         });
     }
 }
