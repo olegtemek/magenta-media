@@ -10,7 +10,7 @@
         <p class="price">
           Цена: 
           @if (!empty($product->price))
-              <span>{{number_format($product->price, 0,'', ' ')}} тг.</span>
+              <span>{{$product->price}}</span>
           @else
             <span>Уточняйте</span>
           @endif

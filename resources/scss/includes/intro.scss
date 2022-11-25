@@ -8,6 +8,27 @@
 
     .intro__left {
       text-shadow: none !important;
+
+      p {
+        padding-top: 10px;
+        padding-bottom: 20px;
+
+        @media (max-width:920px) {
+          font-size: 16px;
+        }
+      }
+
+      h2 {
+        strong {
+          @media (max-width:920px) {
+            font-size: 20px !important;
+          }
+        }
+      }
+    }
+
+    button {
+      margin-top: 0 !important;
     }
 
     &.tipografiya {

@@ -27,6 +27,9 @@
 
         li {
           margin-right: 90px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
           &.link_menu {
             display: none;
@@ -40,6 +43,19 @@
 
             display: flex;
             align-items: center;
+
+            &.number {
+              font-weight: $fw-medium;
+              font-size: 18px;
+
+              @media (max-width:1366px) {
+                font-size: 16px;
+              }
+
+              @media (max-width:1024px) {
+                font-weight: $fw-regular;
+              }
+            }
 
             span {
               width: 8px;
@@ -78,24 +94,6 @@
 
           &:first-child {
             text-decoration: underline;
-          }
-
-          &:last-child {
-            margin-right: 48px;
-
-            @media (max-width:1366px) {
-              margin-right: 20px;
-            }
-
-            a {
-              font-weight: $fw-medium;
-              font-size: 18px;
-
-              @media (max-width:1024px) {
-                font-size: 16px;
-                font-weight: $fw-regular;
-              }
-            }
           }
         }
       }

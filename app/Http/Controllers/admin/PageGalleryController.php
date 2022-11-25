@@ -18,7 +18,7 @@ class PageGalleryController extends Controller
     public function index($id)
     {
         $page = Page::find($id);
-        $gallery = Gallery::all();
+        $gallery = Gallery::where('page_id', $page->id)->get();
         return view('admin.gallery.index', compact('page', 'gallery'));
     }
 

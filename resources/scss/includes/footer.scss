@@ -48,6 +48,9 @@
         }
 
         li {
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
           @media (max-width:660px) {
             padding: 8px;

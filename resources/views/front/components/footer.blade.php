@@ -17,6 +17,8 @@
               <svg class="icon whatsapp">
                 <use xlink:href="#whatsapp"></use>
               </svg> 
+            </a>
+            <a class="number" href="tel:{{str_replace(' ', '',$global_data['settings']->number)}}"> 
               {{$global_data['settings']->number}}
             </a>
           </li>

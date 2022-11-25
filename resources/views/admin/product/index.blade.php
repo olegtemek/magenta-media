@@ -32,7 +32,7 @@
             <tr>
               <td>{{$product->title}}</td>
               <td><img src="/{{$product->image}}" style="max-width:150px" alt=""></td>
-              <td>{{number_format($product->price, 0, '.', ' ')}}</td>
+              <td>{{$product->price}}</td>
               <td>
                 <a href="{{route('admin.product.edit', $product->id)}}" class="btn btn-primary">Изменить</a>
                 <form style="display:inline" action="{{route('admin.product.destroy', $product->id)}}" method="post">
