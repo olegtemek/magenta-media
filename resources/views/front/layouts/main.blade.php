@@ -11,6 +11,7 @@
   @vite(['resources/js/app.js', 'resources/scss/app.scss'])
 </head>
 <body>
+  
   <input type="hidden" class="page_id" value="{{$data['page']->id}}">
   @include('front.components.header')
   @include('front.components.menu')
@@ -21,7 +22,11 @@
   @include('front.components.insta')
   @include('front.components.select', ['pages'=>$global_data['pages']])
   @if ($data['page']->seo_text)
-      {!! $data['page']->seo_text !!}
+      <div class="seo__text">
+        <div class="container">
+          {!! $data['page']->seo_text !!}
+        </div>
+      </div>
   @endif
   @include('front.components.footer', ['pages'=>$global_data['pages']])
 
@@ -75,6 +80,12 @@
     <h2>Ваша заявка отправленна</h2>
     <p>Мы свяжемся с вами в скором времени</p>
   </div>
+
+  <a class="whatsapp_bottom" href="https://wa.me/{{$global_data['settings']->number_whatsapp}}?text=Здравствуйте" target="_blank">
+    <svg class="icon">
+      <use xlink:href="#whatsapp"></use>
+    </svg> 
+  </a>
 
   @include('front.components.svg')
 

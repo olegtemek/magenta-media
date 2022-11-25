@@ -27,7 +27,6 @@ class MailController extends Controller
             ]);
         } else {
             $mailData['title'] = $req->title;
-
             FacadesMail::to('your_email@gmail.com')->send(new MailSend($mailData));
             return response()->json([
                 'status' => 200

@@ -3,6 +3,7 @@
     <div class="header__wrapper">
       <div class="header__logo">
         <a href="{{route('front.home.index')}}"><img src="{{Vite::asset('resources/assets/logo.png')}}" alt="{{env('APP_NAME')}}"> {{env('APP_NAME')}}</a>
+        <a class="header_number" href="tel:{{$global_data['settings']->number}}">{{$global_data['settings']->number}}</a>
         <svg class="icon" id="burger_btn">
           <use xlink:href="#burger"></use>
         </svg>

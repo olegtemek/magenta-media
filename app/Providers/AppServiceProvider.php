@@ -30,6 +30,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (env('APP_ENV' !== 'local')) {
+            URL::forceScheme('https');
+        }
         view()->composer('*', function ($view) {
             $global_data = [];
             $global_data['pages'] = Page::all();
@@ -68,9 +71,6 @@ class AppServiceProvider extends ServiceProvider
 
             $global_data['settings'] = Setting::find(1);
             View::share('global_data', $global_data);
-            if (env('APP_ENV' !== 'local')) {
-                URL::forceScheme('https');
-            }
         });
     }
 }

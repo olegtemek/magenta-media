@@ -49,6 +49,7 @@ class PageController extends Controller
             'custom_description' => $request->custom_description,
             'custom_image' => $request->custom_image,
             'seo_title' => $request->seo_title,
+            'seo_text' => $request->seo_text,
             'seo_description' => $request->seo_description,
             'slug' => Str::slug($request->slug),
 
@@ -88,7 +89,7 @@ class PageController extends Controller
      */
     public function update(PageRequest $request, $id)
     {
-        Page::find($id)->update($request->only(['title', 'subtitle', 'description', 'image', 'custom_title', 'custom_description', 'custom_image', 'seo_title', 'seo_description']));
+        Page::find($id)->update($request->only(['title', 'subtitle', 'description', 'image', 'custom_title', 'custom_description', 'custom_image', 'seo_title', 'seo_text', 'seo_description']));
 
         return redirect()->route('admin.page.index')->with('message', 'Страница была изменена');
     }
@@ -101,6 +102,7 @@ class PageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Page::destroy($id);
+        return redirect()->route('admin.page.index')->with('message', 'Страница была удалена');
     }
 }
