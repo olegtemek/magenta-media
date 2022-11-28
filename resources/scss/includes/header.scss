@@ -174,10 +174,16 @@
             display: block !important;
             max-width: 200px;
           }
+
+          @media (max-width:414px) {
+            margin-top: 30px;
+          }
         }
       }
     }
   }
+
+
 
   &__logo {
     display: flex;
@@ -189,17 +195,6 @@
       width: 100%;
       justify-content: space-between;
 
-      &.active {
-        width: 80%;
-
-        @media (max-width:1024px) {
-          width: 50vw;
-        }
-
-        @media (max-width:680px) {
-          width: 320px;
-        }
-      }
 
       >svg {
         border-radius: $br;
@@ -273,5 +268,78 @@
       }
     }
 
+  }
+
+  .burger_pc {
+    overflow: hidden;
+    transform: translateX(-150%);
+    opacity: 0;
+    transition: $tr;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: $white;
+    z-index: 999;
+    border-right: 1px solid $purple;
+    padding: 20px;
+
+    .cross {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+    }
+
+    li {
+      list-style: none;
+      margin-top: 5vh;
+
+      &.mail {
+        a {
+          border-bottom: 1px solid $black;
+        }
+      }
+
+      &.whatsapp {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        >a {
+          svg {
+            margin-right: 10px;
+            width: 30px;
+            height: 30px;
+            fill: green;
+          }
+        }
+      }
+
+      a,
+      button {
+        font-size: 18px;
+      }
+    }
+
+    >a {
+      position: absolute;
+      right: 10px;
+      top: 90%;
+      width: 40px;
+      height: 40px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+        fill: $purple;
+      }
+    }
+
+    &.active {
+      overflow: visible;
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 }

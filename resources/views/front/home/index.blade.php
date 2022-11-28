@@ -51,7 +51,7 @@
     
   </section>
   
-  @include('front.components.work', ['galleries'=> $data['gallery']])
+  @include('front.components.work', ['galleries'=> $data['gallery'], 'page'=>$data['page']])
   @include('front.components.benefits')
   @include('front.components.custom', ['page'=>$data['page']])
   @include('front.components.form')

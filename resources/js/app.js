@@ -68,11 +68,20 @@ if (document.getElementById('burger_btn')) {
   burger_btn.addEventListener('click', () => {
     if (window.innerWidth <= 1024) {
       document.querySelector('.header__right').classList.add('active')
-      burger_btn.parentNode.classList.add('active')
+
+
       window.addEventListener('click', (e) => {
         if (e.target.tagName != 'UL' && e.target.className != 'header__right active' && e.target.tagName != 'use' && e.target.tagName != 'svg') {
           document.querySelector('.header__right').classList.remove('active')
-          burger_btn.parentNode.classList.remove('active')
+
+        }
+      })
+    }
+    else {
+      document.querySelector('.burger_pc').classList.add('active')
+      window.addEventListener('click', (e) => {
+        if (e.target.tagName != 'UL' && e.target.className != 'burger_pc active' && e.target.tagName != 'use' && e.target.tagName != 'svg') {
+          document.querySelector('.burger_pc').classList.remove('active');
         }
       })
     }
@@ -177,7 +186,7 @@ if (document.getElementById('products_more')) {
           btn_more.innerText = 'Смотреть еще'
         }
       });
-      document.querySelector('.services').scrollIntoView();
+      document.querySelector('.services').scrollIntoView({ behavior: 'smooth' });
       return;
     }
 
@@ -429,5 +438,18 @@ if (document.querySelector('.insta__photos')) {
         photos_block.innerHTML = photos_block.innerHTML + `<a href="${photo.image_url}" target="_blank"><img src="${photo.image}" alt="" style="max-width:150px"></a>`
       });
     }
+  });
+}
+
+
+if (document.querySelector('.contacts')) {
+  let companies_link = document.querySelectorAll('.contacts')
+  let about = document.getElementById('about')
+  companies_link.forEach(item => {
+    item.addEventListener('click', () => {
+      about.scrollIntoView({
+        behavior: 'smooth'
+      });
+    })
   });
 }

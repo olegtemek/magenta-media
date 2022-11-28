@@ -51,11 +51,16 @@
                   <p>Наши работы</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('admin.photo.index', $page->id)}}" class="nav-link {{(request()->is('admin/photo/' . $page->id . '*')) ? 'active' : ''}}">
+                  <i class="fas fa-cogs nav-icon"></i>
+                  <p>Страница все фотографии</p>
+                </a>
+              </li>
             </ul>
           </li>
           @endforeach
         @endif
-        
         
         
        

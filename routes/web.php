@@ -7,8 +7,10 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\admin\PageGalleryController as adminPageGalleryController;
 use App\Http\Controllers\admin\SettingController as adminSettingController;
 use App\Http\Controllers\admin\InstaController as adminInstaController;
+use App\Http\Controllers\admin\PhotoController as adminPhotoController;
 use App\Http\Controllers\front\IndexController;
 use App\Http\Controllers\front\MailController;
+use App\Http\Controllers\front\PhotoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +28,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::get('/', [adminIndexController::class, 'index'])->name('home.index');
     Route::resource('/page', adminPageController::class)->except(['show']);
 
+
     Route::controller(adminPageProductsController::class)->group(function () {
         Route::get('/product/{id}', 'index')->name('product.index');
         Route::get('/product/{id}/create', 'create')->name('product.create');
@@ -33,6 +36,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
         Route::get('/product/{id}/edit', 'edit')->name('product.edit');
         Route::put('/product/{id}/update', 'update')->name('product.update');
         Route::delete('/product/{id}', 'destroy')->name('product.destroy');
+    });
+    Route::controller(adminPhotoController::class)->group(function () {
+        Route::get('/photo/{id}', 'index')->name('photo.index');
+        Route::get('/photo/{id}/create', 'create')->name('photo.create');
+        Route::post('/photo/{id}', 'store')->name('photo.store');
+        Route::get('/photo/{id}/edit', 'edit')->name('photo.edit');
+        Route::put('/photo/{id}/update', 'update')->name('photo.update');
+        Route::delete('/photo/{id}', 'destroy')->name('photo.destroy');
     });
     Route::controller(adminPageGalleryController::class)->group(function () {
         Route::get('/gallery/{id}', 'index')->name('gallery.index');
@@ -55,6 +66,7 @@ Route::group(['as' => 'front.'], function () {
     Route::get('/{slug}', [IndexController::class, 'other'])->name('other.index');
     Route::post('/get-products', [IndexController::class, 'getProducts']);
     Route::post('/send-mail', [MailController::class, 'mail'])->name('mail');
+    Route::get('/photo/{id}', [PhotoController::class, 'index'])->name('photo.index');
 });
 
 

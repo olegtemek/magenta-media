@@ -1,0 +1,119 @@
+.photo {
+
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-bottom: 40px;
+
+    @media (max-width:1024px) {
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+
+    @media (max-width:520px) {
+      flex-direction: column;
+    }
+
+    a {
+      border: 1px solid $purple;
+      padding: 20px;
+      border-radius: $br;
+      color: $black;
+      transition: $tr;
+      display: flex;
+      align-items: center;
+      text-align: center;
+
+      @media (max-width:1366px) {
+        padding: 10px;
+        max-width: 22%;
+      }
+
+      @media (max-width:1024px) {
+        margin-bottom: 10px;
+        max-width: 20%;
+        height: 40px;
+      }
+
+      @media (max-width:740px) {
+        max-width: 200px;
+      }
+
+      @media (max-width:520px) {
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 10px;
+      }
+
+      &:hover {
+        background-color: $purple;
+        color: $white;
+      }
+
+      &.active {
+        background-color: $purple;
+        color: $white;
+      }
+    }
+  }
+
+  h2 {
+    margin-top: 80px;
+
+    @media (max-width:1024px) {
+      margin-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 40px;
+    justify-items: center;
+
+    @media (max-width:520px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    grid-column: span 4;
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+
+    @media (max-width:1024px) {
+      width: 200px;
+      height: 200px;
+    }
+
+    @media (max-width:740px) {
+      grid-column: span 6;
+    }
+
+    @media (max-width:520px) {
+      width: 100%;
+      height: 300px;
+    }
+
+    @media (max-width:414px) {
+      height: 240px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: $br;
+    }
+  }
+}

@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Gallery;
 use App\Models\Page;
+use App\Models\Photo;
 use App\Models\Product;
 use App\Models\Setting;
 use Illuminate\Database\Seeder;
@@ -350,5 +351,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Gallery::factory(20)->create();
+        Photo::factory(40)->create();
     }
 }

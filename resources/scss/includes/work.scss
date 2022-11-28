@@ -12,6 +12,27 @@
     color: $white;
   }
 
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .btn {
+      margin-top: 20px;
+      padding: 20px 30px;
+      background-color: $purple;
+
+      @media (max-width:520px) {
+        padding: 10px 20px;
+      }
+
+      &:hover {
+        background-color: lighten($purple, 10);
+      }
+    }
+  }
+
   &__slider {
     height: 420px;
     position: relative;
