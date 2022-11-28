@@ -42,7 +42,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
         Route::put('/gallery/{id}/update', 'update')->name('gallery.update');
         Route::delete('/gallery/{id}', 'destroy')->name('gallery.destroy');
     });
-    Route::get('/insta', [adminInstaController::class, 'index'])->name('insta.index');
+
+    Route::get('/inst/insta-token-check', [adminInstaController::class, 'index'])->name('insta.index');
     Route::resource('/setting', adminSettingController::class)->only(['index', 'update']);
 });
 Route::get('/login', [AuthController::class, 'index'])->name('login');
@@ -61,4 +62,5 @@ Route::group(['as' => 'front.'], function () {
 
 
 //Insta token for cron url
-Route::get('/inst/insta-token-check', [adminInstaController::class, 'instaToken']);
+Route::get('/inst/insta-token-check/check', [adminInstaController::class, 'instaToken'])->name('insta.check');
+Route::get('/inst/insta-token-check/get', [adminInstaController::class, 'getPosts'])->name('insta.get');

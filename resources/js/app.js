@@ -416,3 +416,18 @@ if (document.querySelectorAll('.parallax-default').length >= 1) {
     });
   });
 }
+
+
+if (document.querySelector('.insta__photos')) {
+  let photos_block = document.querySelector('.insta__photos')
+
+  window.addEventListener("load", async () => {
+    let res = await axios.get('/inst/insta-token-check/get')
+    if (res.data.status == 200) {
+
+      res.data.data.forEach(photo => {
+        photos_block.innerHTML = photos_block.innerHTML + `<a href="${photo.image_url}" target="_blank"><img src="${photo.image}" alt="" style="max-width:150px"></a>`
+      });
+    }
+  });
+}

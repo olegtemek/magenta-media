@@ -18,6 +18,7 @@ class InstaController extends Controller
         ]);
 
 
+
         if (Insta::find(1)) {
             print_r('last update token = <strong>' . Insta::find(1)->day . '</strong><br>');
         }
@@ -46,6 +47,8 @@ class InstaController extends Controller
                     'day' => $today
                 ]);
             }
+
+            return redirect()->route('admin.home.index');
         }
 
 
@@ -94,7 +97,53 @@ class InstaController extends Controller
             } else {
                 echo '<h1>Good<h1>';
             }
+
             // Add to cron url
+        }
+    }
+
+    public function getPosts()
+    {
+        if (Insta::find(1)) {
+            $insta = Insta::find(1);
+            $instagram = new InstagramBasicDisplay([
+                'appId' => env('APP_ID'),
+                'appSecret' => env('APP_SECRET'),
+                'redirectUri' => env('REDIRECT_URI')
+            ]);
+
+            $instagram->setAccessToken($insta->token);
+            $media = $instagram->getUserMedia('me', 6);
+            $data = [];
+
+
+            foreach ($media->data as $item) {
+
+                if ($item->media_type == 'VIDEO') {
+                    array_push($data, ['image' => $item->thumbnail_url, 'image_url' => $item->permalink]);
+                }
+                if ($item->media_type == 'IMAGE') {
+                    array_push($data, ['image' => $item->media_url, 'image_url' => $item->permalink]);
+                } elseif ($item->media_type == 'CAROUSEL_ALBUM') {
+                    foreach ($item->children->data as $itemChildren) {
+                        if ($itemChildren->media_type == 'IMAGE') {
+                            array_push($data, ['image' => $item->media_url, 'image_url' => $item->permalink]);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return response()->json([
+                'data' => $data,
+                'status' => 200,
+            ]);
+
+            //if u want to show in the view
+            // @foreach ($global_data['insta_image'] as $item)
+            //     <a href="{{$item['image_url']}}" target="_blank"><img src="{{$item['image']}}" alt="" style="max-width:150px"></a>
+            //     <br>
+            // @endforeach
         }
     }
 }
