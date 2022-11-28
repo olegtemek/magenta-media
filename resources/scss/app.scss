@@ -139,6 +139,7 @@ body {
   bottom: 10px;
   width: 60px;
   height: 60px;
+  z-index: 2;
   animation: anim $tr infinite alternate-reverse;
 
   @media (max-width:520px) {

@@ -32,11 +32,26 @@
     }
 
     &.tipografiya {
+
       >span {
         left: 40%;
 
         @media (max-width:995px) {
           left: 40% !important;
+        }
+
+        @media (max-width:514px) {
+          img {
+            width: 100%;
+
+            &:first-child {
+              display: none;
+            }
+
+            &.hand {
+              display: block;
+            }
+          }
         }
       }
 
@@ -86,6 +101,14 @@
     }
 
     &.poshiv {
+      .intro__left {
+        p {
+          @media (max-width:514px) {
+            max-width: 210px !important;
+          }
+        }
+      }
+
       >span {
         left: 50%;
         max-width: 400px;
@@ -132,10 +155,9 @@
       img {
         width: 100%;
 
-        @media (max-width:515px) {
-          transform: scale(-1, 1);
+        &.hand {
+          display: none;
         }
-
       }
     }
   }

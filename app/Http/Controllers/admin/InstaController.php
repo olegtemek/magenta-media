@@ -94,7 +94,6 @@ class InstaController extends Controller
             } else {
                 echo '<h1>Good<h1>';
             }
-
             // Add to cron url
         }
     }

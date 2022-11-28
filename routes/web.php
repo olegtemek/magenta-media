@@ -6,7 +6,7 @@ use App\Http\Controllers\admin\PageProductsController as adminPageProductsContro
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\admin\PageGalleryController as adminPageGalleryController;
 use App\Http\Controllers\admin\SettingController as adminSettingController;
-use App\Http\Controllers\admin\InstaController as adminInstaConroller;
+use App\Http\Controllers\admin\InstaController as adminInstaController;
 use App\Http\Controllers\front\IndexController;
 use App\Http\Controllers\front\MailController;
 use Illuminate\Support\Facades\Route;
@@ -61,4 +61,4 @@ Route::group(['as' => 'front.'], function () {
 
 
 //Insta token for cron url
-Route::get('/insta-token-check', [adminInstaConroller::class, 'instaToken']);
+Route::get('/inst/insta-token-check', [adminInstaController::class, 'instaToken']);

@@ -251,6 +251,7 @@ if (document.querySelectorAll('.open-simple').length >= 1) {
   });
 }
 
+
 function productModal() {
   if (document.querySelectorAll('.open-product').length >= 1) {
     document.querySelectorAll('.open-product').forEach(button => {
@@ -333,7 +334,7 @@ function productModal() {
     });
   }
 }
-productModal()
+productModal();
 
 
 if (document.querySelector('.send-simple-form')) {
@@ -385,35 +386,33 @@ if (document.querySelector('.intro__default')) {
       }
     });
   }
+}
+
+if (document.querySelectorAll('.parallax-default').length >= 1) {
+  const parallaxBlocks = document.querySelectorAll('.parallax-default');
+
+  const mediaQueryMini = window.matchMedia('(max-width: 1400px)');
 
 
-
-  if (document.querySelectorAll('.parallax-default').length >= 1) {
-    const parallaxBlocks = document.querySelectorAll('.parallax-default');
-
-    const mediaQueryMini = window.matchMedia('(max-width: 1400px)');
-
-
-    let minusWidth = 190;
-    if (mediaQueryMini.matches) {
-      minusWidth = 120;
-    }
-
-
-    function parallaxScroll(item) {
-      if ((window.scrollY + window.innerHeight) >= item.offsetTop) {
-        let scrollLength = (((window.scrollY) - ((item.offsetTop) - window.innerHeight)) / 6);
-        scrollLength = Math.round(scrollLength);
-        item.style.backgroundPositionY = `${scrollLength - minusWidth}px`;
-      }
-    }
-
-    parallaxScroll(parallaxBlocks[0]);
-
-    parallaxBlocks.forEach(item => {
-      document.addEventListener('scroll', () => {
-        parallaxScroll(item);
-      });
-    });
+  let minusWidth = 190;
+  if (mediaQueryMini.matches) {
+    minusWidth = 120;
   }
+
+
+  function parallaxScroll(item) {
+    if ((window.scrollY + window.innerHeight) >= item.offsetTop) {
+      let scrollLength = (((window.scrollY) - ((item.offsetTop) - window.innerHeight)) / 6);
+      scrollLength = Math.round(scrollLength);
+      item.style.backgroundPositionY = `${scrollLength - minusWidth}px`;
+    }
+  }
+
+  parallaxScroll(parallaxBlocks[0]);
+
+  parallaxBlocks.forEach(item => {
+    document.addEventListener('scroll', () => {
+      parallaxScroll(item);
+    });
+  });
 }

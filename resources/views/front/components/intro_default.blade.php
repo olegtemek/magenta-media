@@ -1,5 +1,9 @@
 <section class="intro intro__default parallax-default {{$page->slug}}" style="background: url('/{{$page->intro_bg}}') no-repeat center/auto;">
-    <span value="-5"><img src="/{{$page->intro_bg_cover}}" alt="{{$page->title}} || Intro"></span>
+    <span value="-5"><img src="/{{$page->intro_bg_cover}}" alt="{{$page->title}} || Intro">
+      @if ($page->slug == 'tipografiya')
+          <img class="hand" src="/images/intros/intro_hand-reverse.png" alt="hand">
+      @endif
+    </span>
     <div class="container">
       <div class="intro__wrapper">
         <div class="intro__left">
