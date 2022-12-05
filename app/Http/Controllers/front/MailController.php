@@ -21,13 +21,13 @@ class MailController extends Controller
         $mailData['page_name'] = $page->title;
 
         if ($req->type == 2) {
-            FacadesMail::to('your_email@gmail.com')->send(new MailSend($mailData));
+            FacadesMail::to(env('EMAIL_ADDRESS'))->send(new MailSend($mailData));
             return response()->json([
                 'status' => 200
             ]);
         } else {
             $mailData['title'] = $req->title;
-            FacadesMail::to('your_email@gmail.com')->send(new MailSend($mailData));
+            FacadesMail::to(env('EMAIL_ADDRESS'))->send(new MailSend($mailData));
             return response()->json([
                 'status' => 200
             ]);
