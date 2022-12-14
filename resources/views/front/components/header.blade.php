@@ -13,7 +13,7 @@
         <nav>
           <ul>
             <li>
-              <a href="mailto:{{$global_data['settings']->email}}" target="_blank"> <span></span> {{$global_data['settings']->email}}</a>
+              <a href="mailto:{{$global_data['settings']->email}}" target="_blank"> <span></span> Напишите нам на почту</a>
             </li>
             <li>
               <a href="https://go.2gis.com/if77e" target="_blank"> <span></span> {{$global_data['settings']->address}}</a>

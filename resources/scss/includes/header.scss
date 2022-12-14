@@ -26,7 +26,7 @@
         align-items: center;
 
         li {
-          margin-right: 90px;
+          margin-right: 80px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -36,7 +36,7 @@
           }
 
           @media (max-width:1366px) {
-            margin-right: 40px;
+            margin-right: 20px;
           }
 
           a {
@@ -205,14 +205,15 @@
       }
     }
 
-    @media (max-width:514px) {}
+
 
     >a {
       display: flex;
       align-items: center;
       justify-content: flex-start;
       color: $gray;
-      font-size: 22px;
+      font-size: 20px;
+
 
       &.header_number {
         display: none;
